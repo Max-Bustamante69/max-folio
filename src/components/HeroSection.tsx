@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowDownTrayIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
-import heroPortrait from '@/assets/hero-portrait.jpg';
+import heroPortrait from '@/assets/hero-portrait.png';
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -33,13 +33,13 @@ const HeroSection = () => {
               Hi, I'm{' '}
               <span className="gradient-text">Maximiliano</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground">
+            <p className="text-xl md:text-2xl ">
               Software Engineering Student & Frontend Developer
             </p>
           </div>
 
           <div className="max-w-2xl space-y-6">
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-md md:text-lg text-muted-foreground leading-relaxed ">
               I'm a passionate Software Engineering student at EAFIT University with extensive experience 
               in modern web development. I specialize in React, Next.js, and creating beautiful, 
               functional user experiences that drive business results.
@@ -54,7 +54,7 @@ const HeroSection = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary-glow rounded-full"></div>
-                  Building scalable e-commerce solutions
+                  Building scalable e-commerce solutions with Shopify Liquid
                 </li>
                 <li className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>

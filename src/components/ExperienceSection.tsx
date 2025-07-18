@@ -115,23 +115,25 @@ const experiences: Experience[] = [
 
 const freelanceProjects = [
   {
-    title: 'Dr. Hugo Diazgranados',
-    description: 'Personal website for aesthetic dentist specializing in high-end dentistry',
-    technologies: ['WordPress', 'Custom PHP', 'CSS'],
-    website: 'https://drhugodiazgranados.com/'
+    title: "Dr. Hugo Diazgranados",
+    description:
+      "Personal website for aesthetic dentist specializing in high-end dentistry",
+    technologies: ["WordPress", "Custom PHP", "CSS"],
+    website: "https://drhugodiazgranados.com/",
   },
   {
-    title: 'Sebastian Correa Developer',
-    description: 'Personal portfolio for Senior Software Developer',
-    technologies: ['Astro.js', 'TypeScript', 'Tailwind CSS'],
-    website: 'https://www.scorrea.dev/'
+    title: "Sebastian Correa Developer",
+    description: "Personal portfolio for Senior Software Developer",
+    technologies: ["Astro.js", "TypeScript", "Tailwind CSS"],
+    website: "https://www.scorrea.dev/",
   },
   {
-    title: 'Pagui.co',
-    description: 'Registration software with OCR recognition for Bancolombia Bank clients',
-    technologies: ['Django', 'Next.js', 'OCR API', 'PostgreSQL'],
-    website: '#'
-  }
+    title: "Pagui.co",
+    description:
+      "Registration software with OCR recognition for Bancolombia Bank clients",
+    technologies: ["Django", "Next.js", "OCR API", "PostgreSQL"],
+    website: "https://pagui-kyc.vercel.app/",
+  },
 ];
 
 const ExperienceSection = () => {
