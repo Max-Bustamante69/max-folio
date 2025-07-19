@@ -8,7 +8,7 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Maximiliano",
-    "title": "Software Engineering Student & Frontend Developer",
+    "title": "Software Engineer",
     "description": "I'm a passionate Software Engineering student at EAFIT University with extensive experience in modern web development. I specialize in React, Next.js, and creating beautiful, functional user experiences that drive business results.",
     "currentFocus": "Current Focus",
     "focusItems": {

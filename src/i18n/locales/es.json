@@ -8,7 +8,7 @@
   "hero": {
     "greeting": "Hola, soy",
     "name": "Maximiliano",
-    "title": "Estudiante de Ingeniería de Software y Desarrollador Frontend",
+    "title": "Ingeniero de Software",
     "description": "Soy un estudiante apasionado de Ingeniería de Software en la Universidad EAFIT con amplia experiencia en desarrollo web moderno. Me especializo en React, Next.js, y crear experiencias de usuario hermosas y funcionales que impulsan resultados empresariales.",
     "currentFocus": "Enfoque Actual",
     "focusItems": {
