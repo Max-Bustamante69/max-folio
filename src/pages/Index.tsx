@@ -10,20 +10,20 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <LanguageProvider>
-      <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
-        <div className="min-h-screen bg-background text-foreground">
-          <Navigation />
+    <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
+      <div className="min-h-screen bg-background text-foreground">
+        <Navigation />
 
-          <main>
-            <HeroSection />
-            <ExperienceSection />
-            <SkillsSection />
-            <ContactSection />
-          </main>
+        <main>
+          <HeroSection />
+          <ExperienceSection />
+          <SkillsSection />
+          <ContactSection />
+        </main>
 
-          <Footer />
-        </div>
-      </ThemeProvider>
+        <Footer />
+      </div>
+    </ThemeProvider>
     </LanguageProvider>
   );
 };

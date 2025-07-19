@@ -162,8 +162,6 @@
 @layer base {
   * {
     @apply border-border;
-    scrollbar-gutter: stable;
-    overflow-y: scroll;
   }
 
   body {
