@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
+import { useTranslations } from "@/hooks/useLanguage";
+import LanguageToggle from "@/components/LanguageToggle";
 import {
   SunIcon,
   MoonIcon,
@@ -13,12 +15,13 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const t = useTranslations();
 
   const navigationItems = [
-    { name: "Home", href: "#home" },
-    { name: "Experience", href: "#experience" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
+    { name: t.nav.home(), href: "#home" },
+    { name: t.nav.experience(), href: "#experience" },
+    { name: t.nav.skills(), href: "#skills" },
+    { name: t.nav.contact(), href: "#contact" },
   ];
 
   useEffect(() => {
@@ -34,19 +37,13 @@ const Navigation = () => {
     const element = document.querySelector(href);
     if (element) {
       const navbarHeight = 120; // Approximate navbar height including top margin
-      const extraOffset = 20; // Additional spacing
-      const totalOffset = navbarHeight + extraOffset;
-
-      const elementPosition =
-        element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - totalOffset;
-
+      const elementPosition = (element as HTMLElement).offsetTop - navbarHeight;
       window.scrollTo({
-        top: offsetPosition,
+        top: elementPosition,
         behavior: "smooth",
       });
+      setIsMobileMenuOpen(false);
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -90,8 +87,9 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Theme Toggle & Mobile Menu */}
+          {/* Language Toggle, Theme Toggle & Mobile Menu */}
           <div className="flex items-center space-x-2 sm:space-x-4">
+            <LanguageToggle />
             <Button
               variant="ghost"
               size="sm"
@@ -127,34 +125,20 @@ const Navigation = () => {
         <div className="md:hidden overflow-hidden transition-all duration-500 ease-in-out">
           <div
             className={`bg-background/95 backdrop-blur-xl rounded-xl border border-border/50 shadow-xl
-              transition-all duration-500 ease-in-out transform
-              ${
-                isMobileMenuOpen
-                  ? "max-h-64 opacity-100 translate-y-0 my-6"
-                  : "max-h-0 opacity-0 -translate-y-2"
-              }
-            `}
+            transition-all duration-500 ease-in-out ${
+              isMobileMenuOpen
+                ? "max-h-96 opacity-100 mt-4 mb-4 p-4"
+                : "max-h-0 opacity-0 mt-0 mb-0 p-0"
+            }`}
           >
-            <div className="p-4 space-y-2">
-              {navigationItems.map((item, index) => (
+            <div className="space-y-3">
+              {navigationItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 transform
-                    text-foreground hover:text-primary hover:bg-primary/10 
-                    border border-transparent hover:border-primary/20
-                    ${
-                      isMobileMenuOpen
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-4"
-                    }
-                  `}
-                  style={{
-                    transitionDelay: `${index * 100}ms`,
-                    transitionProperty: "all",
-                  }}
+                  className="block w-full text-left px-4 py-3 text-foreground font-medium hover:text-primary hover:bg-primary/10 rounded-lg transition-colors duration-200"
                 >
-                  <span className="font-medium text-base">{item.name}</span>
+                  {item.name}
                 </button>
               ))}
             </div>

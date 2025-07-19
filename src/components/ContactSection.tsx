@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslations } from "@/hooks/useLanguage";
 import {
   EnvelopeIcon,
   PhoneIcon,
@@ -27,6 +28,7 @@ const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const t = useTranslations();
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -55,16 +57,15 @@ const ContactSection = () => {
       );
 
       toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: t.contact.toasts.success.title(),
+        description: t.contact.toasts.success.description(),
       });
 
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       toast({
-        title: "Failed to send message",
-        description:
-          "There was an error sending your message. Please try again later.",
+        title: t.contact.toasts.error.title(),
+        description: t.contact.toasts.error.description(),
         variant: "destructive",
       });
     } finally {
@@ -75,19 +76,19 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: EnvelopeIcon,
-      label: "Email",
+      label: t.contact.info.email(),
       value: "maxbustamanteg@gmail.com",
       href: "mailto:maxbustamanteg@gmail.com",
     },
     {
       icon: PhoneIcon,
-      label: "Phone",
+      label: t.contact.info.phone(),
       value: "+57 3195940522",
       href: "tel:+57 3195940522",
     },
     {
       icon: MapPinIcon,
-      label: "Location",
+      label: t.contact.info.location(),
       value: "Medellín, Colombia",
       href: "https://maps.google.com/?q=Medellin,Colombia",
     },
@@ -106,13 +107,14 @@ const ContactSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
-            Let's Work <span className="gradient-text">Together</span>
+            {t.contact.title().split(" ").slice(0, -1).join(" ")}{" "}
+            <span className="gradient-text">
+              {t.contact.title().split(" ").slice(-1)}
+            </span>
           </h2>
           <div className="space-y-4">
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-              Ready to bring your ideas to life with cutting-edge technology and
-              exceptional user experiences? Let's build something amazing
-              together.
+              {t.contact.subtitle()}
             </p>
           </div>
         </div>
@@ -129,8 +131,7 @@ const ContactSection = () => {
                       Send me a message
                     </h3>
                     <p className="text-sm sm:text-base text-muted-foreground">
-                      I'd love to hear about your project. Fill out the form
-                      below and I'll get back to you within 24 hours.
+                      {t.contact.description()}
                     </p>
                   </div>
 
@@ -141,14 +142,16 @@ const ContactSection = () => {
                     <div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <div className="space-y-2">
-                          <Label htmlFor="name">Full Name</Label>
+                          <Label htmlFor="name">
+                            {t.contact.form.fullName()}
+                          </Label>
                           <Input
                             id="name"
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
                             required
-                            placeholder="Your full name"
+                            placeholder={t.contact.form.fullNamePlaceholder()}
                             className="h-10 sm:h-12"
                           />
                         </div>
@@ -202,12 +205,12 @@ const ContactSection = () => {
                       {isSubmitting ? (
                         <div className="flex items-center gap-2">
                           <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          Sending...
+                          {t.contact.form.sending()}
                         </div>
                       ) : (
                         <>
                           <PaperAirplaneIcon className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                          Send Message
+                          {t.contact.form.sendMessage()}
                         </>
                       )}
                     </Button>

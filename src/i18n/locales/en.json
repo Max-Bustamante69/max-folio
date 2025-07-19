@@ -1,0 +1,221 @@
+{
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Maximiliano",
+    "title": "Software Engineering Student & Frontend Developer",
+    "description": "I'm a passionate Software Engineering student at EAFIT University with extensive experience in modern web development. I specialize in React, Next.js, and creating beautiful, functional user experiences that drive business results.",
+    "currentFocus": "Current Focus",
+    "focusItems": {
+      "leadDeveloper": "Lead Frontend Developer at Ellamau SAS",
+      "ecommerce": "Building scalable e-commerce solutions with Shopify Liquid",
+      "freelance": "Freelance web development projects"
+    },
+    "buttons": {
+      "getInTouch": "Get In Touch",
+      "downloadCV": "Download CV"
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "subtitle": "A journey through innovative projects and impactful solutions across various industries",
+    "tabs": {
+      "work": "Professional Work",
+      "freelance": "Freelance Projects"
+    },
+    "badges": {
+      "current": "Current",
+      "completed": "Completed"
+    },
+    "visitWebsite": "Visit Website",
+    "achievements": "Key Achievements",
+    "metrics": "Impact Metrics",
+    "technologies": "Technologies Used",
+    "jobs": {
+      "ellamau": {
+        "title": "Lead Frontend Developer",
+        "company": "Ellamau SAS",
+        "location": "Remote",
+        "period": "2024 - Present",
+        "description": "Leading the complete frontend architecture and development of an e-commerce platform. Responsible for the entire technology stack planning and implementation.",
+        "achievements": [
+          "Architected complete e-commerce solution using MongoDB, Next.js, and Stripe",
+          "Implemented React Query for efficient state management",
+          "Designed responsive UI with modern best practices"
+        ],
+        "metrics": {
+          "salesIncrease": "Sales Increase",
+          "timeline": "Timeline",
+          "teamSize": "Team Size"
+        }
+      },
+      "rh": {
+        "title": "Frontend Developer",
+        "company": "RH (Restoration Hardware)",
+        "location": "Remote",
+        "period": "2024 - 2025",
+        "description": "Developed reusable components for migration from Adobe Experience Manager to Contentful Studio, achieving significant cost reduction.",
+        "achievements": [
+          "Created component library for AEM to Contentful migration",
+          "Implemented Material UI and Radix UI components",
+          "Optimized performance and accessibility standards",
+          "Collaborated with design team for pixel-perfect implementations"
+        ],
+        "metrics": {
+          "costReduction": "Cost Reduction",
+          "componentsBuilt": "Components Built",
+          "teamMembers": "Team Members"
+        }
+      },
+      "orthofix": {
+        "title": "Frontend & Salesforce Developer",
+        "company": "Orthofix",
+        "location": "Remote",
+        "period": "2023 - 2024",
+        "description": "Developed patient registration software and section management systems using Lightning Web Components and Salesforce platform.",
+        "achievements": [
+          "Built patient registration system from scratch",
+          "Implemented section management with Salesforce",
+          "Created Lightning Web Components for enhanced UX",
+          "Integrated with medical device tracking systems"
+        ],
+        "metrics": {
+          "patientsProcessed": "Patients Processed",
+          "systemUptime": "System Uptime",
+          "processingTime": "Processing Time"
+        }
+      },
+      "ibox": {
+        "title": "Frontend React Developer",
+        "company": "iBox SA",
+        "location": "Medellín, Colombia",
+        "period": "2021 - 2022",
+        "description": "Led the creation of the main company website focused on intelligent locker solutions, establishing the digital presence for the business.",
+        "achievements": [
+          "Implemented responsive design for all devices",
+          "Created interactive product showcase",
+          "Established company's digital brand presence"
+        ],
+        "metrics": {
+          "websiteTraffic": "Website Traffic",
+          "leadGeneration": "Lead Generation",
+          "pageLoadTime": "Page Load Time"
+        }
+      }
+    },
+    "freelance": {
+      "drHugo": {
+        "title": "Dr. Hugo Diazgranados",
+        "description": "Personal website for aesthetic dentist specializing in high-end dentistry"
+      },
+      "sebastian": {
+        "title": "Sebastian Correa Developer",
+        "description": "Personal portfolio for Senior Software Developer"
+      },
+      "pagui": {
+        "title": "Pagui.co",
+        "description": "Registration software with OCR recognition for Bancolombia Bank clients"
+      },
+      "wordle": {
+        "title": "Wordle Clone",
+        "description": "Wordle clone built with Vanilla JS"
+      }
+    }
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "A comprehensive toolkit for building modern, scalable, and beautiful web applications",
+    "additionalTitle": "Additional Technologies",
+    "additionalSubtitle": "Other tools and technologies I work with",
+    "levels": {
+      "expert": "Expert",
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "beginner": "Beginner"
+    },
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "tools": "Tools",
+      "languages": "Languages"
+    },
+    "descriptions": {
+      "react": "Building complex, scalable web applications with modern React patterns",
+      "javascript": "ES6+, async/await, functional programming, and modern JS patterns",
+      "nextjs": "Full-stack React framework with SSR, API routes, and optimization",
+      "typescript": "Type-safe development with advanced TypeScript features",
+      "tailwind": "Utility-first CSS framework for rapid UI development",
+      "python": "Backend development, automation, and data processing",
+      "mongodb": "NoSQL database design, aggregation pipelines, and performance optimization",
+      "html": "Structuring web content with HTML5",
+      "css": "Styling web content with CSS3"
+    }
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "subtitle": "Ready to bring your ideas to life with cutting-edge technology and exceptional user experiences? Let's build something amazing together.",
+    "description": "I'd love to hear about your project. Fill out the form below and I'll get back to you within 24 hours.",
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "your.email@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What's this about?",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project, timeline, and budget...",
+      "sendMessage": "Send Message",
+      "sending": "Sending..."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location"
+    },
+    "quickHire": {
+      "title": "Ready to start?",
+      "description": "Available for freelance projects and full-time opportunities. Let's discuss your next big idea.",
+      "button": "Quick Email"
+    },
+    "toasts": {
+      "success": {
+        "title": "Message sent successfully!",
+        "description": "Thank you for your message. I'll get back to you soon."
+      },
+      "error": {
+        "title": "Failed to send message",
+        "description": "There was an error sending your message. Please try again later."
+      }
+    }
+  },
+  "footer": {
+    "name": "Maximiliano Bustamante",
+    "title": "Software Engineer & Frontend Developer",
+    "description": "Crafting exceptional digital experiences with modern technologies. Passionate about creating scalable, beautiful, and performant web applications that make a difference.",
+    "whatIDo": "What I Do",
+    "services": [
+      "Frontend Development",
+      "React Applications",
+      "Next.js Projects",
+      "E-commerce Solutions",
+      "UI/UX Implementation",
+      "Performance Optimization",
+      "Responsive Design",
+      "API Integration"
+    ],
+    "quickLinks": "Quick Links",
+    "getInTouch": "Get In Touch",
+    "copyright": "Built with ❤️ and modern web technologies. All rights reserved."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Page not found",
+    "button": "Return to Home"
+  }
+}

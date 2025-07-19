@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDownTrayIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { useTranslations } from "@/hooks/useLanguage";
 import heroPortrait from "@/assets/hero-portrait.png";
 
 const HeroSection = () => {
+  const t = useTranslations();
+
   const scrollToContact = () => {
     const element = document.querySelector("#contact");
     element?.scrollIntoView({ behavior: "smooth" });
@@ -33,7 +36,8 @@ const HeroSection = () => {
         <div className="space-y-8 text-center lg:text-left animate-fade-in-up">
           <div className="space-y-4">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              Hi, I'm <span className="gradient-text">Maximiliano</span>
+              {t.hero.greeting()}{" "}
+              <span className="gradient-text">{t.hero.name()}</span>
             </h1>
             <p className="text-xl md:text-2xl ">
               Software Engineering Student & Frontend Developer
@@ -42,10 +46,7 @@ const HeroSection = () => {
 
           <div className="max-w-2xl space-y-6">
             <p className="text-md md:text-lg text-muted-foreground leading-relaxed ">
-              I'm a passionate Software Engineering student at EAFIT University
-              with extensive experience in modern web development. I specialize
-              in React, Next.js, and creating beautiful, functional user
-              experiences that drive business results.
+              {t.hero.description()}
             </p>
           </div>
         </div>
@@ -79,23 +80,23 @@ const HeroSection = () => {
         </div>
 
         {/* Current Focus Section - Mobile: After photo, Desktop: Left side */}
-        <div className="order-3 lg:order-2">
+        <div className="order-3 lg:order-2 lg:col-start-1 lg:row-start-3">
           <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-6 space-y-4">
             <h3 className="text-lg font-semibold text-foreground">
-              Current Focus
+              {t.hero.currentFocus()}
             </h3>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
-                Lead Frontend Developer at Ellamau SAS
+                {t.hero.focusItems.leadDeveloper()}
               </li>
               <li className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary-glow rounded-full"></div>
-                Building scalable e-commerce solutions with Shopify Liquid
+                {t.hero.focusItems.ecommerce()}
               </li>
               <li className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>
-                Freelance web development projects
+                {t.hero.focusItems.freelance()}
               </li>
             </ul>
           </div>
@@ -104,7 +105,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Button onClick={scrollToContact} className="btn-hero group">
               <EnvelopeIcon className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-              Get In Touch
+              {t.hero.buttons.getInTouch()}
             </Button>
             <Button
               onClick={downloadCV}
@@ -112,7 +113,7 @@ const HeroSection = () => {
               className="btn-hero-outline group"
             >
               <ArrowDownTrayIcon className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-              Download CV
+              {t.hero.buttons.downloadCV()}
             </Button>
           </div>
         </div>

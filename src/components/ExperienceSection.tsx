@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "@/hooks/useLanguage";
 import {
   CalendarIcon,
   BuildingOffice2Icon,
@@ -31,26 +32,35 @@ interface Experience {
   logo?: string;
 }
 
-const experiences: Experience[] = [
+// Function to get translated experiences
+const getExperiences = (
+  t: ReturnType<typeof useTranslations>
+): Experience[] => [
   {
     id: "ellamau",
-    title: "Lead Frontend Developer",
-    company: "Ellamau SAS",
-    location: "Remote",
-    period: "2024 - Present",
+    title: t.experience.jobs.ellamau.title(),
+    company: t.experience.jobs.ellamau.company(),
+    location: t.experience.jobs.ellamau.location(),
+    period: t.experience.jobs.ellamau.period(),
     type: "current",
-    description:
-      "Leading the complete frontend architecture and development of an e-commerce platform. Responsible for the entire technology stack planning and implementation.",
-    achievements: [
-      "Architected complete e-commerce solution using MongoDB, Next.js, and Stripe",
-      "Implemented React Query for efficient state management",
-      "Built comprehensive admin panel for content management",
-      "Designed responsive UI with modern best practices",
-    ],
+    description: t.experience.jobs.ellamau.description(),
+    achievements: t.experience.jobs.ellamau.achievements(),
     metrics: [
-      { label: "Sales Increase", value: "60%", icon: ChartBarIcon },
-      { label: "Timeline", value: "30 Days", icon: CalendarIcon },
-      { label: "Team Size", value: "3", icon: UsersIcon },
+      {
+        label: t.experience.jobs.ellamau.metrics.salesIncrease(),
+        value: "60%",
+        icon: ChartBarIcon,
+      },
+      {
+        label: t.experience.jobs.ellamau.metrics.timeline(),
+        value: "30 Days",
+        icon: CalendarIcon,
+      },
+      {
+        label: t.experience.jobs.ellamau.metrics.teamSize(),
+        value: "3",
+        icon: UsersIcon,
+      },
     ],
     technologies: [
       "React",
@@ -65,23 +75,29 @@ const experiences: Experience[] = [
   },
   {
     id: "rh",
-    title: "Frontend Developer",
-    company: "RH (Restoration Hardware)",
-    location: "Remote",
-    period: "2024 - 2025",
+    title: t.experience.jobs.rh.title(),
+    company: t.experience.jobs.rh.company(),
+    location: t.experience.jobs.rh.location(),
+    period: t.experience.jobs.rh.period(),
     type: "full-time",
-    description:
-      "Developed reusable components for migration from Adobe Experience Manager to Contentful Studio, achieving significant cost reduction.",
-    achievements: [
-      "Created component library for AEM to Contentful migration",
-      "Implemented Material UI and Radix UI components",
-      "Optimized performance and accessibility standards",
-      "Collaborated with design team for pixel-perfect implementations",
-    ],
+    description: t.experience.jobs.rh.description(),
+    achievements: t.experience.jobs.rh.achievements(),
     metrics: [
-      { label: "Cost Reduction", value: "60%", icon: ChartBarIcon },
-      { label: "Components Built", value: "50+", icon: BuildingOffice2Icon },
-      { label: "Team Members", value: "12", icon: UsersIcon },
+      {
+        label: t.experience.jobs.rh.metrics.costReduction(),
+        value: "60%",
+        icon: ChartBarIcon,
+      },
+      {
+        label: t.experience.jobs.rh.metrics.componentsBuilt(),
+        value: "50+",
+        icon: BuildingOffice2Icon,
+      },
+      {
+        label: t.experience.jobs.rh.metrics.teamMembers(),
+        value: "12",
+        icon: UsersIcon,
+      },
     ],
     technologies: [
       "React",
@@ -96,23 +112,29 @@ const experiences: Experience[] = [
   },
   {
     id: "orthofix",
-    title: "Frontend  & Salesforce Developer",
-    company: "Orthofix",
-    location: "Remote",
-    period: "2023 - 2024",
+    title: t.experience.jobs.orthofix.title(),
+    company: t.experience.jobs.orthofix.company(),
+    location: t.experience.jobs.orthofix.location(),
+    period: t.experience.jobs.orthofix.period(),
     type: "full-time",
-    description:
-      "Developed patient registration software and section management systems using Lightning Web Components and Salesforce platform.",
-    achievements: [
-      "Built patient registration system from scratch",
-      "Implemented section management with Salesforce",
-      "Created Lightning Web Components for enhanced UX",
-      "Integrated with medical device tracking systems",
-    ],
+    description: t.experience.jobs.orthofix.description(),
+    achievements: t.experience.jobs.orthofix.achievements(),
     metrics: [
-      { label: "Patients Processed", value: "1000+", icon: UsersIcon },
-      { label: "System Uptime", value: "99.9%", icon: ChartBarIcon },
-      { label: "Processing Time", value: "-75%", icon: CalendarIcon },
+      {
+        label: t.experience.jobs.orthofix.metrics.patientsProcessed(),
+        value: "1000+",
+        icon: UsersIcon,
+      },
+      {
+        label: t.experience.jobs.orthofix.metrics.systemUptime(),
+        value: "99.9%",
+        icon: ChartBarIcon,
+      },
+      {
+        label: t.experience.jobs.orthofix.metrics.processingTime(),
+        value: "-75%",
+        icon: CalendarIcon,
+      },
     ],
     technologies: [
       "Lightning Web Components",
@@ -126,23 +148,29 @@ const experiences: Experience[] = [
   },
   {
     id: "ibox",
-    title: "Frontend React Developer",
-    company: "iBox SA",
-    location: "Medellín, Colombia",
-    period: "2021 - 2022",
+    title: t.experience.jobs.ibox.title(),
+    company: t.experience.jobs.ibox.company(),
+    location: t.experience.jobs.ibox.location(),
+    period: t.experience.jobs.ibox.period(),
     type: "full-time",
-    description:
-      "Led the creation of the main company website focused on intelligent locker solutions, establishing the digital presence for the business.",
-    achievements: [
-      "Built main company website from ground up",
-      "Implemented responsive design for all devices",
-      "Created interactive product showcase",
-      "Established company's digital brand presence",
-    ],
+    description: t.experience.jobs.ibox.description(),
+    achievements: t.experience.jobs.ibox.achievements(),
     metrics: [
-      { label: "Website Traffic", value: "+200%", icon: ChartBarIcon },
-      { label: "Lead Generation", value: "+150%", icon: UsersIcon },
-      { label: "Page Load Time", value: "1.2s", icon: CalendarIcon },
+      {
+        label: t.experience.jobs.ibox.metrics.websiteTraffic(),
+        value: "+200%",
+        icon: ChartBarIcon,
+      },
+      {
+        label: t.experience.jobs.ibox.metrics.leadGeneration(),
+        value: "+150%",
+        icon: UsersIcon,
+      },
+      {
+        label: t.experience.jobs.ibox.metrics.pageLoadTime(),
+        value: "1.2s",
+        icon: CalendarIcon,
+      },
     ],
     technologies: ["React", "JavaScript", "CSS3", "HTML5", "Responsive Design"],
     website: "https://www.iboxsm.com/",
@@ -150,36 +178,39 @@ const experiences: Experience[] = [
   },
 ];
 
-const freelanceProjects = [
+// Function to get translated freelance projects
+const getFreelanceProjects = (t: ReturnType<typeof useTranslations>) => [
   {
-    title: "Dr. Hugo Diazgranados",
-    description:
-      "Personal website for aesthetic dentist specializing in high-end dentistry",
+    title: t.experience.freelance.drHugo.title(),
+    description: t.experience.freelance.drHugo.description(),
     technologies: ["WordPress", "Custom PHP", "CSS"],
     website: "https://drhugodiazgranados.com/",
   },
   {
-    title: "Sebastian Correa Developer",
-    description: "Personal portfolio for Senior Software Developer",
+    title: t.experience.freelance.sebastian.title(),
+    description: t.experience.freelance.sebastian.description(),
     technologies: ["Astro.js", "TypeScript", "Tailwind CSS"],
     website: "https://www.scorrea.dev/",
   },
   {
-    title: "Pagui.co",
-    description:
-      "Registration software with OCR recognition for Bancolombia Bank clients",
+    title: t.experience.freelance.pagui.title(),
+    description: t.experience.freelance.pagui.description(),
     technologies: ["Django", "Next.js", "OCR API", "PostgreSQL"],
     website: "https://pagui-kyc.vercel.app/",
   },
   {
-    title: "Wordle Clone",
-    description: "Wordle clone built with Vanilla JS",
+    title: t.experience.freelance.wordle.title(),
+    description: t.experience.freelance.wordle.description(),
     technologies: ["Vanilla JS", "HTML", "CSS"],
     website: "https://wordle-max.vercel.app/",
   },
 ];
 
 const ExperienceSection = () => {
+  const t = useTranslations();
+  const experiences = getExperiences(t);
+  const freelanceProjects = getFreelanceProjects(t);
+
   const [selectedExperience, setSelectedExperience] = useState<string>(
     experiences[0].id
   );
@@ -197,11 +228,13 @@ const ExperienceSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Professional <span className="gradient-text">Experience</span>
+            {t.experience.title().split(" ").slice(0, -1).join(" ")}{" "}
+            <span className="gradient-text">
+              {t.experience.title().split(" ").slice(-1)}
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A journey through innovative projects and impactful solutions across
-            various industries
+            {t.experience.subtitle()}
           </p>
         </div>
 
@@ -213,14 +246,14 @@ const ExperienceSection = () => {
               onClick={() => setActiveTab("work")}
               className={activeTab === "work" ? "btn-hero" : ""}
             >
-              Professional Work
+              {t.experience.tabs.work()}
             </Button>
             <Button
               variant={activeTab === "freelance" ? "default" : "ghost"}
               onClick={() => setActiveTab("freelance")}
               className={activeTab === "freelance" ? "btn-hero" : ""}
             >
-              Freelance Projects
+              {t.experience.tabs.freelance()}
             </Button>
           </div>
         </div>
@@ -320,8 +353,8 @@ const ExperienceSection = () => {
                                 }
                               >
                                 {selectedExp.type === "current"
-                                  ? "Current"
-                                  : "Completed"}
+                                  ? t.experience.badges.current()
+                                  : t.experience.badges.completed()}
                               </Badge>
                             </div>
                             <div className="flex items-center gap-2 text-muted-foreground">
@@ -340,7 +373,7 @@ const ExperienceSection = () => {
                                     rel="noopener noreferrer"
                                     className="text-primary hover:text-primary-glow link-animated hidden sm:inline"
                                   >
-                                    Visit Website
+                                    {t.experience.visitWebsite()}
                                   </a>
                                 </>
                               )}
@@ -375,7 +408,7 @@ const ExperienceSection = () => {
                       {/* Achievements - Desktop */}
                       <div className="hidden md:block space-y-3">
                         <h4 className="text-lg font-semibold text-foreground">
-                          Key Achievements
+                          {t.experience.achievements()}
                         </h4>
                         <ul className="space-y-2">
                           {selectedExp.achievements.map(
@@ -403,7 +436,7 @@ const ExperienceSection = () => {
                           className="w-full flex items-center justify-between p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors duration-200 border border-border/50"
                         >
                           <h4 className="text-lg font-semibold text-foreground">
-                            Key Achievements
+                            {t.experience.achievements()}
                           </h4>
                           {isAchievementsOpen ? (
                             <ChevronUpIcon className="w-5 h-5 text-muted-foreground transition-transform duration-300" />
@@ -455,7 +488,7 @@ const ExperienceSection = () => {
                       {/* Technologies */}
                       <div className="space-y-3">
                         <h4 className="text-lg font-semibold text-foreground">
-                          Technologies Used
+                          {t.experience.technologies()}
                         </h4>
                         <div className="flex flex-wrap gap-2">
                           {selectedExp.technologies.map((tech, index) => (

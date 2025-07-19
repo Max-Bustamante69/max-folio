@@ -1,8 +1,14 @@
-import { CodeBracketIcon, HeartIcon } from "@heroicons/react/24/outline";
+import {
+  CodeBracketIcon,
+  HeartIcon,
+  EnvelopeIcon,
+} from "@heroicons/react/24/outline";
+import { useTranslations } from "@/hooks/useLanguage";
 import mbLogo from "@/assets/mb-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations();
 
   const socialLinks = [
     {
@@ -23,33 +29,14 @@ const Footer = () => {
         </svg>
       ),
     },
-    {
-      name: "Email",
-      href: "mailto:maxbustamanteg@gmail.com",
-      icon: (
-        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.84l9.524 7.14 9.524-7.14h.84c.904 0 1.636.732 1.636 1.636z" />
-        </svg>
-      ),
-    },
   ];
-
-  const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Experience", href: "#experience" },
-    { name: "Skills", href: "#skills" },
-    { name: "Contact", href: "#contact" },
-  ];
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-t from-card/50 to-background border-t border-border/50">
+    <footer className="relative bg-gradient-to-b from-background to-muted border-t border-border/50 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5 pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl opacity-40" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-glow/10 rounded-full blur-3xl opacity-30" />
 
       <div className="max-w-7xl mx-auto px-4 py-16 relative z-10">
         <div className="grid md:grid-cols-12 gap-12">
@@ -63,73 +50,75 @@ const Footer = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-foreground">
-                    Maximiliano Bustamante
+                    {t.footer.name()}
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Software Engineer & Frontend Developer
+                    {t.footer.title()}
                   </p>
                 </div>
               </div>
 
               <p className="text-muted-foreground leading-relaxed">
-                Crafting exceptional digital experiences with modern
-                technologies. Passionate about creating scalable, beautiful, and
-                performant web applications that make a difference.
+                {t.footer.description()}
               </p>
             </div>
 
             {/* Social Links */}
-            <div className="space-y-3">
-              <h4 className="font-semibold text-foreground">Connect with me</h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-muted/50 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-                    aria-label={social.name}
-                  >
-                    <div className="text-muted-foreground group-hover:text-primary transition-colors">
-                      {social.icon}
-                    </div>
-                  </a>
-                ))}
-              </div>
+            <div className="flex space-x-4">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-muted/80 hover:bg-primary/20 border border-border/50 hover:border-primary/30 rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+                >
+                  {link.icon}
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="md:col-span-3 space-y-6">
-            <h4 className="font-semibold text-foreground">Quick Links</h4>
-            <nav className="space-y-3">
-              {quickLinks.map((link) => (
-                <button
-                  key={link.name}
-                  onClick={() => scrollToSection(link.href)}
+            <h4 className="font-semibold text-foreground">
+              {t.footer.quickLinks()}
+            </h4>
+            <div className="space-y-3">
+              {[
+                { name: t.nav.home(), href: "#home" },
+                { name: t.nav.experience(), href: "#experience" },
+                { name: t.nav.skills(), href: "#skills" },
+                { name: t.nav.contact(), href: "#contact" },
+              ].map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
                   className="block text-muted-foreground hover:text-primary transition-colors duration-200 link-animated"
                 >
-                  {link.name}
-                </button>
+                  {item.name}
+                </a>
               ))}
-            </nav>
+            </div>
+
+            <div className="pt-4">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 text-primary hover:text-primary-glow font-medium transition-colors duration-200"
+              >
+                <EnvelopeIcon className="w-4 h-4" />
+                {t.footer.getInTouch()}
+              </a>
+            </div>
           </div>
 
-          {/* Services/Technologies */}
+          {/* Services */}
           <div className="md:col-span-4 space-y-6">
-            <h4 className="font-semibold text-foreground">What I Do</h4>
+            <h4 className="font-semibold text-foreground">
+              {t.footer.whatIDo()}
+            </h4>
             <div className="grid grid-cols-2 gap-4">
-              {[
-                "Frontend Development",
-                "React Applications",
-                "Next.js Projects",
-                "E-commerce Solutions",
-                "UI/UX Implementation",
-                "Performance Optimization",
-                "Responsive Design",
-                "API Integration",
-              ].map((service, index) => (
+              {t.footer.services().map((service, index) => (
                 <div key={service} className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
                   <span className="text-sm text-muted-foreground">
@@ -143,57 +132,17 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="border-t border-border/50 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>© {currentYear} Maximiliano Bustamante. </span>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <CodeBracketIcon className="w-5 h-5" />
+              <span className="text-sm">{t.footer.copyright()}</span>
             </div>
-
-            <div className="flex items-center gap-2 text-sm text-muted-foreground ">
-              <span>Made with</span>
-              <HeartIcon className="w-4 h-4 text-red-500 animate-pulse" />
-              <span>and</span>
-              <CodeBracketIcon className="w-4 h-4 text-primary" />
-              <span>in Medellín, Colombia</span>
-            </div>
-
-            <div className="flex items-center gap-6 text-sm">
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors link-animated"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors link-animated"
-              >
-                Terms of Service
-              </a>
+            <div className="text-sm text-muted-foreground">
+              © {currentYear} Maximiliano Bustamante
             </div>
           </div>
         </div>
       </div>
-
-      {/* Scroll to top button */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-primary hover:bg-primary-glow rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-50 group"
-        aria-label="Scroll to top"
-      >
-        <svg
-          className="w-5 h-5 text-white group-hover:translate-y-[-2px] transition-transform"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 10l7-7m0 0l7 7m-7-7v18"
-          />
-        </svg>
-      </button>
     </footer>
   );
 };

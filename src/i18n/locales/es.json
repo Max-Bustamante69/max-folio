@@ -1,0 +1,221 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Maximiliano",
+    "title": "Estudiante de Ingeniería de Software y Desarrollador Frontend",
+    "description": "Soy un estudiante apasionado de Ingeniería de Software en la Universidad EAFIT con amplia experiencia en desarrollo web moderno. Me especializo en React, Next.js, y crear experiencias de usuario hermosas y funcionales que impulsan resultados empresariales.",
+    "currentFocus": "Enfoque Actual",
+    "focusItems": {
+      "leadDeveloper": "Desarrollador Frontend Líder en Ellamau SAS",
+      "ecommerce": "Construcción de soluciones de e-commerce escalables con Shopify Liquid",
+      "freelance": "Proyectos de desarrollo web independiente"
+    },
+    "buttons": {
+      "getInTouch": "Contactar",
+      "downloadCV": "Descargar CV"
+    }
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "subtitle": "Un viaje a través de proyectos innovadores y soluciones impactantes en diversas industrias",
+    "tabs": {
+      "work": "Trabajo Profesional",
+      "freelance": "Proyectos Independientes"
+    },
+    "badges": {
+      "current": "Actual",
+      "completed": "Completado"
+    },
+    "visitWebsite": "Visitar Sitio Web",
+    "achievements": "Logros Clave",
+    "metrics": "Métricas de Impacto",
+    "technologies": "Tecnologías Utilizadas",
+    "jobs": {
+      "ellamau": {
+        "title": "Desarrollador Frontend Líder",
+        "company": "Ellamau SAS",
+        "location": "Remoto",
+        "period": "2024 - Presente",
+        "description": "Liderando la arquitectura frontend completa y el desarrollo de una plataforma de e-commerce. Responsable de toda la planificación e implementación del stack tecnológico.",
+        "achievements": [
+          "Arquitectura de solución e-commerce completa usando MongoDB, Next.js y Stripe",
+          "Implementación de React Query para gestión eficiente del estado",
+          "Diseño de UI responsive con mejores prácticas modernas"
+        ],
+        "metrics": {
+          "salesIncrease": "Incremento en Ventas",
+          "timeline": "Cronograma",
+          "teamSize": "Tamaño del Equipo"
+        }
+      },
+      "rh": {
+        "title": "Desarrollador Frontend",
+        "company": "RH (Restoration Hardware)",
+        "location": "Remoto",
+        "period": "2024 - 2025",
+        "description": "Desarrollo de componentes reutilizables para migración de Adobe Experience Manager a Contentful Studio, logrando una reducción significativa de costos.",
+        "achievements": [
+          "Creación de librería de componentes para migración AEM a Contentful",
+          "Implementación de componentes Material UI y Radix UI",
+          "Optimización de rendimiento y estándares de accesibilidad",
+          "Colaboración con equipo de diseño para implementaciones pixel-perfect"
+        ],
+        "metrics": {
+          "costReduction": "Reducción de Costos",
+          "componentsBuilt": "Componentes Construidos",
+          "teamMembers": "Miembros del Equipo"
+        }
+      },
+      "orthofix": {
+        "title": "Desarrollador Frontend y Salesforce",
+        "company": "Orthofix",
+        "location": "Remoto",
+        "period": "2023 - 2024",
+        "description": "Desarrollo de software de registro de pacientes y sistemas de gestión de secciones usando Lightning Web Components y la plataforma Salesforce.",
+        "achievements": [
+          "Construcción de sistema de registro de pacientes desde cero",
+          "Implementación de gestión de secciones con Salesforce",
+          "Creación de Lightning Web Components para UX mejorada",
+          "Integración con sistemas de seguimiento de dispositivos médicos"
+        ],
+        "metrics": {
+          "patientsProcessed": "Pacientes Procesados",
+          "systemUptime": "Tiempo de Actividad del Sistema",
+          "processingTime": "Tiempo de Procesamiento"
+        }
+      },
+      "ibox": {
+        "title": "Desarrollador Frontend React",
+        "company": "iBox SA",
+        "location": "Medellín, Colombia",
+        "period": "2021 - 2022",
+        "description": "Lideré la creación del sitio web principal de la empresa enfocado en soluciones de casilleros inteligentes, estableciendo la presencia digital del negocio.",
+        "achievements": [
+          "Implementación de diseño responsive para todos los dispositivos",
+          "Creación de showcase interactivo de productos",
+          "Establecimiento de la presencia de marca digital de la empresa"
+        ],
+        "metrics": {
+          "websiteTraffic": "Tráfico del Sitio Web",
+          "leadGeneration": "Generación de Leads",
+          "pageLoadTime": "Tiempo de Carga de Página"
+        }
+      }
+    },
+    "freelance": {
+      "drHugo": {
+        "title": "Dr. Hugo Diazgranados",
+        "description": "Sitio web personal para dentista estético especializado en odontología de alta gama"
+      },
+      "sebastian": {
+        "title": "Sebastian Correa Developer",
+        "description": "Portafolio personal para Desarrollador de Software Senior"
+      },
+      "pagui": {
+        "title": "Pagui.co",
+        "description": "Software de registro con reconocimiento OCR para clientes del Banco Bancolombia"
+      },
+      "wordle": {
+        "title": "Clon de Wordle",
+        "description": "Clon de Wordle construido con Vanilla JS"
+      }
+    }
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "subtitle": "Un conjunto de herramientas integral para construir aplicaciones web modernas, escalables y hermosas",
+    "additionalTitle": "Tecnologías Adicionales",
+    "additionalSubtitle": "Otras herramientas y tecnologías con las que trabajo",
+    "levels": {
+      "expert": "Experto",
+      "advanced": "Avanzado",
+      "intermediate": "Intermedio",
+      "beginner": "Principiante"
+    },
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Base de Datos",
+      "tools": "Herramientas",
+      "languages": "Lenguajes"
+    },
+    "descriptions": {
+      "react": "Construcción de aplicaciones web complejas y escalables con patrones modernos de React",
+      "javascript": "ES6+, async/await, programación funcional y patrones modernos de JS",
+      "nextjs": "Framework full-stack de React con SSR, rutas API y optimización",
+      "typescript": "Desarrollo type-safe con características avanzadas de TypeScript",
+      "tailwind": "Framework CSS utility-first para desarrollo rápido de UI",
+      "python": "Desarrollo backend, automatización y procesamiento de datos",
+      "mongodb": "Diseño de base de datos NoSQL, pipelines de agregación y optimización de rendimiento",
+      "html": "Estructuración de contenido web con HTML5",
+      "css": "Estilización de contenido web con CSS3"
+    }
+  },
+  "contact": {
+    "title": "Trabajemos Juntos",
+    "subtitle": "¿Listo para dar vida a tus ideas con tecnología de vanguardia y experiencias de usuario excepcionales? Construyamos algo increíble juntos.",
+    "description": "Me encantaría conocer sobre tu proyecto. Completa el formulario a continuación y te responderé en 24 horas.",
+    "form": {
+      "fullName": "Nombre Completo",
+      "fullNamePlaceholder": "Tu nombre completo",
+      "email": "Dirección de Email",
+      "emailPlaceholder": "tu.email@ejemplo.com",
+      "subject": "Asunto",
+      "subjectPlaceholder": "¿De qué se trata?",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto, cronograma y presupuesto...",
+      "sendMessage": "Enviar Mensaje",
+      "sending": "Enviando..."
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Teléfono",
+      "location": "Ubicación"
+    },
+    "quickHire": {
+      "title": "¿Listo para empezar?",
+      "description": "Disponible para proyectos independientes y oportunidades de tiempo completo. Discutamos tu próxima gran idea.",
+      "button": "Email Rápido"
+    },
+    "toasts": {
+      "success": {
+        "title": "¡Mensaje enviado exitosamente!",
+        "description": "Gracias por tu mensaje. Te responderé pronto."
+      },
+      "error": {
+        "title": "Error al enviar mensaje",
+        "description": "Hubo un error enviando tu mensaje. Por favor intenta más tarde."
+      }
+    }
+  },
+  "footer": {
+    "name": "Maximiliano Bustamante",
+    "title": "Ingeniero de Software y Desarrollador Frontend",
+    "description": "Creando experiencias digitales excepcionales con tecnologías modernas. Apasionado por crear aplicaciones web escalables, hermosas y de alto rendimiento que hacen la diferencia.",
+    "whatIDo": "Lo Que Hago",
+    "services": [
+      "Desarrollo Frontend",
+      "Aplicaciones React",
+      "Proyectos Next.js",
+      "Soluciones E-commerce",
+      "Implementación UI/UX",
+      "Optimización de Rendimiento",
+      "Diseño Responsive",
+      "Integración de APIs"
+    ],
+    "quickLinks": "Enlaces Rápidos",
+    "getInTouch": "Contactar",
+    "copyright": "Construido con ❤️ y tecnologías web modernas. Todos los derechos reservados."
+  },
+  "notFound": {
+    "title": "404",
+    "message": "¡Ups! Página no encontrada",
+    "button": "Volver al Inicio"
+  }
+}

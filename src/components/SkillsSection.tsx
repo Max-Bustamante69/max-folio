@@ -1,5 +1,6 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { useTranslations } from "@/hooks/useLanguage";
 
 // Skill icons - using SVG for better performance and consistency
 const skillIcons = {
@@ -108,104 +109,110 @@ const skillIcons = {
 
 interface Skill {
   name: string;
-  category: 'Frontend' | 'Backend' | 'Database' | 'Tools' | 'Languages';
+  category: "Frontend" | "Backend" | "Database" | "Tools" | "Languages";
   icon: keyof typeof skillIcons;
-  level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+  level: "Beginner" | "Intermediate" | "Advanced" | "Expert";
   description: string;
   color: string;
 }
 
 const skills: Skill[] = [
   {
-    name: 'React',
-    category: 'Frontend',
-    icon: 'react',
-    level: 'Expert',
-    description: 'Building complex, scalable web applications with modern React patterns',
-    color: 'text-cyan-400'
+    name: "React",
+    category: "Frontend",
+    icon: "react",
+    level: "Expert",
+    description:
+      "Building complex, scalable web applications with modern React patterns",
+    color: "text-cyan-400",
   },
   {
-    name: 'JavaScript',
-    category: 'Languages',
-    icon: 'javascript',
-    level: 'Expert',
-    description: 'ES6+, async/await, functional programming, and modern JS patterns',
-    color: 'text-yellow-400'
+    name: "JavaScript",
+    category: "Languages",
+    icon: "javascript",
+    level: "Expert",
+    description:
+      "ES6+, async/await, functional programming, and modern JS patterns",
+    color: "text-yellow-400",
   },
   {
-    name: 'Next.js',
-    category: 'Frontend',
-    icon: 'nextjs',
-    level: 'Expert',
-    description: 'Full-stack React framework with SSR, API routes, and optimization',
-    color: 'text-foreground'
+    name: "Next.js",
+    category: "Frontend",
+    icon: "nextjs",
+    level: "Expert",
+    description:
+      "Full-stack React framework with SSR, API routes, and optimization",
+    color: "text-foreground",
   },
   {
-    name: 'TypeScript',
-    category: 'Languages',
-    icon: 'typescript',
-    level: 'Expert',
-    description: 'Type-safe development with interfaces, generics, and advanced types',
-    color: 'text-blue-400'
+    name: "TypeScript",
+    category: "Languages",
+    icon: "typescript",
+    level: "Expert",
+    description:
+      "Type-safe development with interfaces, generics, and advanced types",
+    color: "text-blue-400",
   },
   {
-    name: 'Tailwind CSS',
-    category: 'Frontend',
-    icon: 'tailwind',
-    level: 'Expert',
-    description: 'Utility-first CSS framework for rapid UI development',
-    color: 'text-cyan-300'
+    name: "Tailwind CSS",
+    category: "Frontend",
+    icon: "tailwind",
+    level: "Expert",
+    description: "Utility-first CSS framework for rapid UI development",
+    color: "text-cyan-300",
   },
   {
-    name: 'Python',
-    category: 'Languages',
-    icon: 'python',
-    level: 'Advanced',
-    description: 'Backend development, automation, and data processing',
-    color: 'text-green-400'
+    name: "Python",
+    category: "Languages",
+    icon: "python",
+    level: "Advanced",
+    description: "Backend development, automation, and data processing",
+    color: "text-green-400",
   },
   {
-    name: 'MongoDB',
-    category: 'Database',
-    icon: 'mongodb',
-    level: 'Advanced',
-    description: 'NoSQL database design, aggregation pipelines, and performance optimization',
-    color: 'text-green-500'
+    name: "MongoDB",
+    category: "Database",
+    icon: "mongodb",
+    level: "Advanced",
+    description:
+      "NoSQL database design, aggregation pipelines, and performance optimization",
+    color: "text-green-500",
   },
   {
-    name: 'HTML',
-    category: 'Frontend',
-    icon: 'html',
-    level: 'Expert',
-    description: 'Structuring web content with HTML5',
-    color: 'text-orange-400'
+    name: "HTML",
+    category: "Frontend",
+    icon: "html",
+    level: "Expert",
+    description: "Structuring web content with HTML5",
+    color: "text-orange-400",
   },
   {
-    name: 'CSS',
-    category: 'Frontend',
-    icon: 'css',
-    level: 'Expert',
-    description: 'Styling web content with CSS3',
-    color: 'text-blue-400'
-  }
-  ];
+    name: "CSS",
+    category: "Frontend",
+    icon: "css",
+    level: "Expert",
+    description: "Styling web content with CSS3",
+    color: "text-blue-400",
+  },
+];
 
 const additionalSkills = [
-  { name: 'Material UI', category: 'Frontend' },
-  { name: 'Radix UI', category: 'Frontend' },
-  { name: 'Shadcn/ui', category: 'Frontend' },
-  { name: 'Styled Components', category: 'Frontend' },
-  { name: 'CSS3', category: 'Frontend' },
-  { name: 'HTML5', category: 'Frontend' },
-  { name: 'SQL', category: 'Database' },
-  { name: 'GraphQL', category: 'Backend' },
-  { name: 'Stripe', category: 'Tools' },
-  { name: 'Vercel', category: 'Tools' },
-  { name: 'React Query', category: 'Frontend' },
-  { name: 'React Router', category: 'Frontend' }
+  { name: "Material UI", category: "Frontend" },
+  { name: "Radix UI", category: "Frontend" },
+  { name: "Shadcn/ui", category: "Frontend" },
+  { name: "Styled Components", category: "Frontend" },
+  { name: "CSS3", category: "Frontend" },
+  { name: "HTML5", category: "Frontend" },
+  { name: "SQL", category: "Database" },
+  { name: "GraphQL", category: "Backend" },
+  { name: "Stripe", category: "Tools" },
+  { name: "Vercel", category: "Tools" },
+  { name: "React Query", category: "Frontend" },
+  { name: "React Router", category: "Frontend" },
 ];
 
 const SkillsSection = () => {
+  const t = useTranslations();
   const skillsByCategory = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) acc[skill.category] = [];
     acc[skill.category].push(skill);
@@ -214,11 +221,16 @@ const SkillsSection = () => {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Expert': return 'bg-green-500';
-      case 'Advanced': return 'bg-blue-500';
-      case 'Intermediate': return 'bg-yellow-500';
-      case 'Beginner': return 'bg-gray-500';
-      default: return 'bg-gray-500';
+      case "Expert":
+        return "bg-green-500";
+      case "Advanced":
+        return "bg-blue-500";
+      case "Intermediate":
+        return "bg-yellow-500";
+      case "Beginner":
+        return "bg-gray-500";
+      default:
+        return "bg-gray-500";
     }
   };
 
@@ -233,18 +245,21 @@ const SkillsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Technical <span className="gradient-text">Skills</span>
+            {t.skills.title().split(" ").slice(0, -1).join(" ")}{" "}
+            <span className="gradient-text">
+              {t.skills.title().split(" ").slice(-1)}
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A comprehensive toolkit for building modern, scalable, and beautiful web applications
+            {t.skills.subtitle()}
           </p>
         </div>
 
         {/* Primary Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {skills.map((skill, index) => (
-            <Card 
-              key={skill.name} 
+            <Card
+              key={skill.name}
               className="card-glow hover:scale-105 transition-all duration-300 group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
@@ -258,27 +273,46 @@ const SkillsSection = () => {
 
                 {/* Skill Info */}
                 <div className="space-y-3">
-                  <h3 className="text-xl font-semibold text-foreground">{skill.name}</h3>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {skill.name}
+                  </h3>
                   <div className="flex items-center justify-center gap-2">
                     <Badge variant="outline" className="text-xs">
-                      {skill.category}
+                      {t.skills.categories[
+                        skill.category.toLowerCase() as keyof typeof t.skills.categories
+                      ]()}
                     </Badge>
-                    <div className={`w-2 h-2 rounded-full ${getLevelColor(skill.level)}`} />
-                    <span className="text-sm text-muted-foreground">{skill.level}</span>
+                    <div
+                      className={`w-2 h-2 rounded-full ${getLevelColor(
+                        skill.level
+                      )}`}
+                    />
+                    <span className="text-sm text-muted-foreground">
+                      {t.skills.levels[
+                        skill.level.toLowerCase() as keyof typeof t.skills.levels
+                      ]()}
+                    </span>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    {skill.description}
+                    {t.skills.descriptions[
+                      skill.name.toLowerCase() as keyof typeof t.skills.descriptions
+                    ]?.() || skill.description}
                   </p>
                 </div>
 
                 {/* Progress Bar */}
                 <div className="w-full bg-muted rounded-full h-2">
-                  <div 
+                  <div
                     className={`h-2 rounded-full bg-gradient-to-r from-primary to-primary-glow transition-all duration-1000 delay-300`}
-                    style={{ 
-                      width: skill.level === 'Expert' ? '95%' : 
-                            skill.level === 'Advanced' ? '80%' : 
-                            skill.level === 'Intermediate' ? '65%' : '40%' 
+                    style={{
+                      width:
+                        skill.level === "Expert"
+                          ? "95%"
+                          : skill.level === "Advanced"
+                          ? "80%"
+                          : skill.level === "Intermediate"
+                          ? "65%"
+                          : "40%",
                     }}
                   />
                 </div>
@@ -290,29 +324,37 @@ const SkillsSection = () => {
         {/* Additional Skills */}
         <div className="space-y-8 animate-fade-in-up">
           <div className="text-center">
-            <h3 className="text-2xl font-semibold mb-4">Additional Technologies</h3>
-            <p className="text-muted-foreground">Other tools and technologies I work with</p>
+            <h3 className="text-2xl font-semibold mb-4">
+              {t.skills.additionalTitle()}
+            </h3>
+            <p className="text-muted-foreground">
+              {t.skills.additionalSubtitle()}
+            </p>
           </div>
 
           <Card className="card-glow">
             <CardContent className="p-8">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
                 {additionalSkills.map((skill, index) => (
-                  <div 
+                  <div
                     key={skill.name}
                     className="bg-muted/30 rounded-xl p-4 text-center hover:bg-primary/10 hover:scale-105 transition-all duration-300 cursor-default"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    <div className="font-medium text-sm text-foreground mb-1">{skill.name}</div>
-                    <div className="text-xs text-muted-foreground">{skill.category}</div>
+                    <div className="font-medium text-sm text-foreground mb-1">
+                      {skill.name}
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      {t.skills.categories[
+                        skill.category.toLowerCase() as keyof typeof t.skills.categories
+                      ]()}
+                    </div>
                   </div>
                 ))}
               </div>
             </CardContent>
           </Card>
         </div>
-
-      
       </div>
     </section>
   );
