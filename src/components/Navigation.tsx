@@ -32,7 +32,20 @@ const Navigation = () => {
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+    if (element) {
+      const navbarHeight = 120; // Approximate navbar height including top margin
+      const extraOffset = 20; // Additional spacing
+      const totalOffset = navbarHeight + extraOffset;
+
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - totalOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -42,7 +55,7 @@ const Navigation = () => {
         bg-background/60 dark:bg-background/40
         backdrop-blur-2xl dark:backdrop-blur-3xl
         border border-border/40 dark:border-border/60
-        shadow-lg rounded-2xl mx-auto max-w-4xl
+        shadow-lg rounded-2xl mx-4 sm:mx-auto max-w-full sm:max-w-2xl md:max-w-4xl
         before:content-[''] before:absolute before:inset-0 before:rounded-2xl before:pointer-events-none
         before:bg-gradient-to-b before:from-white/40 before:to-transparent before:opacity-60 dark:before:from-white/10 dark:before:to-transparent
         ${
@@ -54,10 +67,14 @@ const Navigation = () => {
       style={{ top: "2.5rem" }}
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-12 sm:h-14 md:h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img src={mbLogo} alt="MB Logo" className="w-12 h-12" />
+            <img
+              src={mbLogo}
+              alt="MB Logo"
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -76,17 +93,17 @@ const Navigation = () => {
           </div>
 
           {/* Theme Toggle & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="w-10 h-10"
+              className="w-8 h-8 sm:w-10 sm:h-10"
             >
               {theme === "dark" ? (
-                <SunIcon className="h-10 w-10" />
+                <SunIcon className="h-5 w-5 sm:h-6 sm:w-6" />
               ) : (
-                <MoonIcon className="h-10 w-10" />
+                <MoonIcon className="h-5 w-5 sm:h-6 sm:w-6" />
               )}
             </Button>
 
@@ -96,12 +113,12 @@ const Navigation = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="w-10 h-10"
+                className="w-8 h-8 sm:w-10 sm:h-10 relative"
               >
                 {isMobileMenuOpen ? (
-                  <XMarkIcon className="h-10 w-10" />
+                  <XMarkIcon className="h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-300 rotate-90" />
                 ) : (
-                  <Bars3Icon className="h-10 w-10" />
+                  <Bars3Icon className="h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-300" />
                 )}
               </Button>
             </div>
@@ -109,21 +126,42 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-lg rounded-lg mt-2 border border-border/50">
-              {navigationItems.map((item) => (
+        <div className="md:hidden overflow-hidden transition-all duration-500 ease-in-out">
+          <div
+            className={`bg-background/95 backdrop-blur-xl rounded-xl border border-border/50 shadow-xl
+              transition-all duration-500 ease-in-out transform
+              ${
+                isMobileMenuOpen
+                  ? "max-h-64 opacity-100 translate-y-0 my-6"
+                  : "max-h-0 opacity-0 -translate-y-2"
+              }
+            `}
+          >
+            <div className="p-4 space-y-2">
+              {navigationItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-accent rounded-md transition-colors duration-200"
+                  className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 transform
+                    text-foreground hover:text-primary hover:bg-primary/10 
+                    border border-transparent hover:border-primary/20
+                    ${
+                      isMobileMenuOpen
+                        ? "opacity-100 translate-x-0"
+                        : "opacity-0 -translate-x-4"
+                    }
+                  `}
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                    transitionProperty: "all",
+                  }}
                 >
-                  {item.name}
+                  <span className="font-medium text-base">{item.name}</span>
                 </button>
               ))}
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

@@ -17,7 +17,7 @@ const CustomCursor = () => {
   }, []);
 
   useEffect(() => {
-    const ease = 0.18;
+    const ease = 0.05;
     const animate = () => {
       pos.current.x += (mouse.current.x - pos.current.x) * ease;
       pos.current.y += (mouse.current.y - pos.current.y) * ease;

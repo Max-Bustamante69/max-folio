@@ -13,10 +13,10 @@ import {
 } from "@heroicons/react/24/outline";
 import emailjs from "@emailjs/browser";
 
-  // Vite exposes env variables via import.meta.env
-  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+// Vite exposes env variables via import.meta.env
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -94,19 +94,22 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 px-4 relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-16 sm:py-24 px-4 relative overflow-hidden"
+    >
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent pointer-events-none" />
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-30" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             Let's Work <span className="gradient-text">Together</span>
           </h2>
           <div className="space-y-4">
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
               Ready to bring your ideas to life with cutting-edge technology and
               exceptional user experiences? Let's build something amazing
               together.
@@ -114,18 +117,18 @@ const ContactSection = () => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12">
+        <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
           {/* Left Column: Contact Form + Availability */}
-          <div className="lg:col-span-8 flex flex-col gap-8 h-full">
+          <div className="lg:col-span-8 flex flex-col gap-6 sm:gap-8 h-full">
             {/* Contact Form (2/3 height) */}
             <div className="flex-1 flex flex-col">
               <Card className="card-glow flex-1 flex flex-col">
-                <CardContent className="p-8 flex-1 flex flex-col">
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-semibold mb-3 text-foreground">
+                <CardContent className="p-4 sm:p-6 lg:p-8 flex-1 flex flex-col">
+                  <div className="mb-6 sm:mb-8">
+                    <h3 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-3 text-foreground">
                       Send me a message
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm sm:text-base text-muted-foreground">
                       I'd love to hear about your project. Fill out the form
                       below and I'll get back to you within 24 hours.
                     </p>
@@ -133,10 +136,10 @@ const ContactSection = () => {
 
                   <form
                     onSubmit={handleSubmit}
-                    className="space-y-6 flex-1 flex flex-col justify-between"
+                    className="space-y-4 sm:space-y-6 flex-1 flex flex-col justify-between"
                   >
                     <div>
-                      <div className="grid md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="name">Full Name</Label>
                           <Input
@@ -146,7 +149,7 @@ const ContactSection = () => {
                             onChange={handleInputChange}
                             required
                             placeholder="Your full name"
-                            className="h-12"
+                            className="h-10 sm:h-12"
                           />
                         </div>
                         <div className="space-y-2">
@@ -159,12 +162,12 @@ const ContactSection = () => {
                             onChange={handleInputChange}
                             required
                             placeholder="your.email@example.com"
-                            className="h-12"
+                            className="h-10 sm:h-12"
                           />
                         </div>
                       </div>
 
-                      <div className="space-y-2 mt-6">
+                      <div className="space-y-2 mt-4 sm:mt-6">
                         <Label htmlFor="subject">Subject</Label>
                         <Input
                           id="subject"
@@ -173,11 +176,11 @@ const ContactSection = () => {
                           onChange={handleInputChange}
                           required
                           placeholder="What's this about?"
-                          className="h-12"
+                          className="h-10 sm:h-12"
                         />
                       </div>
 
-                      <div className="space-y-2 mt-6">
+                      <div className="space-y-2 mt-4 sm:mt-6">
                         <Label htmlFor="message">Message</Label>
                         <Textarea
                           id="message"
@@ -186,7 +189,7 @@ const ContactSection = () => {
                           onChange={handleInputChange}
                           required
                           placeholder="Tell me about your project, timeline, and budget..."
-                          className="min-h-[120px] resize-none"
+                          className="min-h-[100px] sm:min-h-[120px] resize-none"
                         />
                       </div>
                     </div>
@@ -194,7 +197,7 @@ const ContactSection = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full md:w-auto btn-hero group mt-6"
+                      className="w-full md:w-auto btn-hero group mt-4 sm:mt-6"
                     >
                       {isSubmitting ? (
                         <div className="flex items-center gap-2">
@@ -215,14 +218,14 @@ const ContactSection = () => {
             {/* Availability Status (1/3 height) */}
             <div className="flex-shrink-0">
               <Card className="card-glow h-full">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="font-semibold text-xl  text-foreground">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-center gap-3 mb-2 sm:mb-3">
+                    <div className="w-3 h-3 sm:w-4 sm:h-4 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="font-semibold text-lg sm:text-xl text-foreground">
                       Available for work
                     </span>
                   </div>
-                  <p className=" text-muted-foreground">
+                  <p className="text-sm sm:text-base text-muted-foreground">
                     Currently accepting new projects for Q1 2025. Typical
                     response time: 2-6 hours.
                   </p>
@@ -232,28 +235,28 @@ const ContactSection = () => {
           </div>
 
           {/* Right Column: Get in touch & Quick Hire */}
-          <div className="lg:col-span-4 flex flex-col gap-8 h-full">
+          <div className="lg:col-span-4 flex flex-col gap-6 sm:gap-8 h-full">
             {/* Contact Information */}
             <Card className="card-glow">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-6 text-foreground">
+              <CardContent className="p-4 sm:p-6 lg:p-8">
+                <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-foreground">
                   Get in touch
                 </h3>
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   {contactInfo.map((item, index) => (
                     <a
                       key={index}
                       href={item.href}
-                      className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors duration-200 group"
+                      className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl hover:bg-muted/50 transition-colors duration-200 group"
                     >
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                        <item.icon className="w-6 h-6 text-primary" />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                        <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                       </div>
-                      <div>
-                        <div className="font-medium text-foreground mb-1">
+                      <div className="min-w-0 flex-1">
+                        <div className="font-medium text-foreground mb-1 text-sm sm:text-base">
                           {item.label}
                         </div>
-                        <div className="text-muted-foreground">
+                        <div className="text-muted-foreground text-sm sm:text-base break-words">
                           {item.value}
                         </div>
                       </div>
@@ -265,14 +268,14 @@ const ContactSection = () => {
 
             {/* Quick Hire Card */}
             <Card className="card-glow bg-gradient-to-br from-primary/10 to-primary-glow/10 border-primary/20">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-glow">
-                  <EnvelopeIcon className="w-8 h-8 text-primary" />
+              <CardContent className="p-4 sm:p-6 lg:p-8 text-center">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 animate-pulse-glow">
+                  <EnvelopeIcon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-foreground">
                   Ready to start?
                 </h3>
-                <p className="text-muted-foreground mb-6 text-sm">
+                <p className="text-muted-foreground mb-4 sm:mb-6 text-sm">
                   Available for freelance projects and full-time opportunities.
                   Let's discuss your next big idea.
                 </p>
