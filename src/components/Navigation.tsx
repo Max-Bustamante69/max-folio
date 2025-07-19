@@ -53,11 +53,9 @@ const Navigation = () => {
     <nav
       className={`fixed left-0 right-0 z-50 transition-all duration-300 mt-8
         bg-background/60 dark:bg-background/40
-        backdrop-blur-2xl dark:backdrop-blur-3xl
+        backdrop-blur dark:backdrop-blur
         border border-border/40 dark:border-border/60
         shadow-lg rounded-2xl mx-4 sm:mx-auto max-w-full sm:max-w-2xl md:max-w-4xl
-        before:content-[''] before:absolute before:inset-0 before:rounded-2xl before:pointer-events-none
-        before:bg-gradient-to-b before:from-white/40 before:to-transparent before:opacity-60 dark:before:from-white/10 dark:before:to-transparent
         ${
           isScrolled
             ? "border-primary/30 dark:border-primary/40"
@@ -84,7 +82,7 @@ const Navigation = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-foreground hover:text-primary transition-colors duration-200 link-animated"
+                  className="text-foreground font-semibold hover:text-primary transition-colors duration-200"
                 >
                   {item.name}
                 </button>

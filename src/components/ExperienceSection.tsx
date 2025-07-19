@@ -271,7 +271,7 @@ const ExperienceSection = () => {
                         href={exp.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute top-4 right-4 text-white hover:text-primary transition-colors duration-200"
+                        className="absolute top-4 right-4 text-black dark:text-white hover:text-primary transition-colors duration-200"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <ArrowTopRightOnSquareIcon className="w-5 h-5" />
@@ -294,7 +294,7 @@ const ExperienceSection = () => {
                           {/* Company Logo */}
                           {selectedExp.logo && (
                             <div className="flex-shrink-0">
-                              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl border-2 border-border/50 p-2 flex items-center justify-center shadow-sm">
+                              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white  rounded-xl border-2 border-gray-200 p-2 flex items-center justify-center shadow-sm">
                                 <img
                                   src={selectedExp.logo}
                                   alt={`${selectedExp.company} logo`}
@@ -477,7 +477,7 @@ const ExperienceSection = () => {
                         href={selectedExp.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute top-6 right-6 text-white hover:text-primary transition-colors duration-200 sm:hidden"
+                        className="absolute top-6 right-6 text-black dark:text-white hover:text-primary transition-colors duration-200 sm:hidden"
                       >
                         <ArrowTopRightOnSquareIcon className="w-6 h-6" />
                       </a>
@@ -530,7 +530,7 @@ const ExperienceSection = () => {
                       href={project.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute top-4 right-4 text-white hover:text-primary transition-colors duration-200"
+                      className="absolute top-4 right-4 text-black dark:text-white hover:text-primary transition-colors duration-200"
                     >
                       <ArrowTopRightOnSquareIcon className="w-5 h-5" />
                     </a>
