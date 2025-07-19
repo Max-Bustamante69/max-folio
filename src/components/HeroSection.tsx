@@ -39,9 +39,7 @@ const HeroSection = () => {
               {t.hero.greeting()}{" "}
               <span className="gradient-text">{t.hero.name()}</span>
             </h1>
-            <p className="text-xl md:text-2xl ">
-              {t.hero.title()}
-            </p>
+            <p className="text-xl md:text-2xl ">{t.hero.title()}</p>
           </div>
 
           <div className="max-w-2xl space-y-6">
