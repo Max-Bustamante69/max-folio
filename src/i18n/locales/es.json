@@ -33,6 +33,7 @@
       "completed": "Completado"
     },
     "visitWebsite": "Visitar Sitio Web",
+    "viewProject": "Ver Proyecto",
     "achievements": "Logros Clave",
     "metrics": "Métricas de Impacto",
     "technologies": "Tecnologías Utilizadas",
@@ -162,6 +163,7 @@
     "subtitle": "¿Listo para dar vida a tus ideas con tecnología de vanguardia y experiencias de usuario excepcionales? Construyamos algo increíble juntos.",
     "description": "Me encantaría conocer sobre tu proyecto. Completa el formulario a continuación y te responderé en 24 horas.",
     "form": {
+      "title": "Envíame un mensaje",
       "fullName": "Nombre Completo",
       "fullNamePlaceholder": "Tu nombre completo",
       "email": "Dirección de Email",
@@ -173,6 +175,8 @@
       "sendMessage": "Enviar Mensaje",
       "sending": "Enviando..."
     },
+    "availability": "Disponible para trabajo",
+    "availabilityDescription": "Actualmente acepto nuevos proyectos para Q1 2025. Tiempo de respuesta típico: 2-6 horas.",
     "info": {
       "email": "Email",
       "phone": "Teléfono",
@@ -183,6 +187,7 @@
       "description": "Disponible para proyectos independientes y oportunidades de tiempo completo. Discutamos tu próxima gran idea.",
       "button": "Email Rápido"
     },
+    "getInTouch": "Contactar",
     "toasts": {
       "success": {
         "title": "¡Mensaje enviado exitosamente!",

@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { useTranslations } from "@/hooks/useLanguage";
+import { useTranslations } from "@/hooks/useTranslations";
+
 import {
   EnvelopeIcon,
   PhoneIcon,
@@ -128,7 +129,7 @@ const ContactSection = () => {
                 <CardContent className="p-4 sm:p-6 lg:p-8 flex-1 flex flex-col">
                   <div className="mb-6 sm:mb-8">
                     <h3 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-3 text-foreground">
-                      Send me a message
+                      {t.contact.form.title()}
                     </h3>
                     <p className="text-sm sm:text-base text-muted-foreground">
                       {t.contact.description()}
@@ -156,7 +157,9 @@ const ContactSection = () => {
                           />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="email">Email Address</Label>
+                          <Label htmlFor="email">
+                            {t.contact.form.email()}
+                          </Label>
                           <Input
                             id="email"
                             name="email"
@@ -164,34 +167,38 @@ const ContactSection = () => {
                             value={formData.email}
                             onChange={handleInputChange}
                             required
-                            placeholder="your.email@example.com"
+                            placeholder={t.contact.form.emailPlaceholder()}
                             className="h-10 sm:h-12"
                           />
                         </div>
                       </div>
 
                       <div className="space-y-2 mt-4 sm:mt-6">
-                        <Label htmlFor="subject">Subject</Label>
+                        <Label htmlFor="subject">
+                          {t.contact.form.subject()}
+                        </Label>
                         <Input
                           id="subject"
                           name="subject"
                           value={formData.subject}
                           onChange={handleInputChange}
                           required
-                          placeholder="What's this about?"
+                          placeholder={t.contact.form.subjectPlaceholder()}
                           className="h-10 sm:h-12"
                         />
                       </div>
 
                       <div className="space-y-2 mt-4 sm:mt-6">
-                        <Label htmlFor="message">Message</Label>
+                        <Label htmlFor="message">
+                          {t.contact.form.message()}
+                        </Label>
                         <Textarea
                           id="message"
                           name="message"
                           value={formData.message}
                           onChange={handleInputChange}
                           required
-                          placeholder="Tell me about your project, timeline, and budget..."
+                          placeholder={t.contact.form.messagePlaceholder()}
                           className="min-h-[100px] sm:min-h-[120px] resize-none"
                         />
                       </div>
@@ -225,12 +232,11 @@ const ContactSection = () => {
                   <div className="flex items-center gap-3 mb-2 sm:mb-3">
                     <div className="w-3 h-3 sm:w-4 sm:h-4 bg-green-500 rounded-full animate-pulse"></div>
                     <span className="font-semibold text-lg sm:text-xl text-foreground">
-                      Available for work
+                      {t.contact.availability()}
                     </span>
                   </div>
                   <p className="text-sm sm:text-base text-muted-foreground">
-                    Currently accepting new projects for Q1 2025. Typical
-                    response time: 2-6 hours.
+                    {t.contact.availabilityDescription()}
                   </p>
                 </CardContent>
               </Card>
@@ -243,7 +249,7 @@ const ContactSection = () => {
             <Card className="card-glow">
               <CardContent className="p-4 sm:p-6 lg:p-8">
                 <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-foreground">
-                  Get in touch
+                  {t.contact.getInTouch()}
                 </h3>
                 <div className="space-y-4 sm:space-y-6">
                   {contactInfo.map((item, index) => (
@@ -276,18 +282,17 @@ const ContactSection = () => {
                   <EnvelopeIcon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-foreground">
-                  Ready to start?
+                  {t.contact.quickHire.title()}
                 </h3>
                 <p className="text-muted-foreground mb-4 sm:mb-6 text-sm">
-                  Available for freelance projects and full-time opportunities.
-                  Let's discuss your next big idea.
+                  {t.contact.quickHire.description()}
                 </p>
                 <Button
                   onClick={() => window.open(contactInfo[0].href, "_blank")}
                   variant="outline"
                   className="w-full btn-hero-outline"
                 >
-                  Quick Email
+                  {t.contact.quickHire.button()}
                 </Button>
               </CardContent>
             </Card>

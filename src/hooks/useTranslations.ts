@@ -1,51 +1,4 @@
-import { useTranslation } from "react-i18next";
-import { createContext, useContext, ReactNode } from "react";
-
-type Language = "en" | "es";
-
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (language: Language) => void;
-  t: (key: string, options?: any) => string;
-}
-
-const LanguageContext = createContext<LanguageContextType | undefined>(
-  undefined
-);
-
-interface LanguageProviderProps {
-  children: ReactNode;
-}
-
-export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  const { t, i18n } = useTranslation();
-
-  const language = i18n.language as Language;
-
-  const setLanguage = (newLanguage: Language) => {
-    i18n.changeLanguage(newLanguage);
-  };
-
-  const value = {
-    language,
-    setLanguage,
-    t,
-  };
-
-  return (
-    <LanguageContext.Provider value={value}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
-  }
-  return context;
-};
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Type-safe translation hook with autocomplete
 export const useTranslations = () => {
@@ -91,6 +44,7 @@ export const useTranslations = () => {
         completed: () => t("experience.badges.completed"),
       },
       visitWebsite: () => t("experience.visitWebsite"),
+      viewProject: () => t("experience.viewProject"),
       achievements: () => t("experience.achievements"),
       metrics: () => t("experience.metrics"),
       technologies: () => t("experience.technologies"),
@@ -104,7 +58,7 @@ export const useTranslations = () => {
           achievements: () =>
             t("experience.jobs.ellamau.achievements", {
               returnObjects: true,
-            }) as string[],
+            }) as unknown as string[],
           metrics: {
             salesIncrease: () =>
               t("experience.jobs.ellamau.metrics.salesIncrease"),
@@ -121,7 +75,7 @@ export const useTranslations = () => {
           achievements: () =>
             t("experience.jobs.rh.achievements", {
               returnObjects: true,
-            }) as string[],
+            }) as unknown as string[],
           metrics: {
             costReduction: () => t("experience.jobs.rh.metrics.costReduction"),
             componentsBuilt: () =>
@@ -138,7 +92,7 @@ export const useTranslations = () => {
           achievements: () =>
             t("experience.jobs.orthofix.achievements", {
               returnObjects: true,
-            }) as string[],
+            }) as unknown as string[],
           metrics: {
             patientsProcessed: () =>
               t("experience.jobs.orthofix.metrics.patientsProcessed"),
@@ -157,7 +111,7 @@ export const useTranslations = () => {
           achievements: () =>
             t("experience.jobs.ibox.achievements", {
               returnObjects: true,
-            }) as string[],
+            }) as unknown as string[],
           metrics: {
             websiteTraffic: () =>
               t("experience.jobs.ibox.metrics.websiteTraffic"),
@@ -225,6 +179,7 @@ export const useTranslations = () => {
       subtitle: () => t("contact.subtitle"),
       description: () => t("contact.description"),
       form: {
+        title: () => t("contact.form.title"),
         fullName: () => t("contact.form.fullName"),
         fullNamePlaceholder: () => t("contact.form.fullNamePlaceholder"),
         email: () => t("contact.form.email"),
@@ -236,6 +191,9 @@ export const useTranslations = () => {
         sendMessage: () => t("contact.form.sendMessage"),
         sending: () => t("contact.form.sending"),
       },
+      availability: () => t("contact.availability"),
+      availabilityDescription: () => t("contact.availabilityDescription"),
+      getInTouch: () => t("contact.getInTouch"),
       info: {
         email: () => t("contact.info.email"),
         phone: () => t("contact.info.phone"),
@@ -264,7 +222,8 @@ export const useTranslations = () => {
       title: () => t("footer.title"),
       description: () => t("footer.description"),
       whatIDo: () => t("footer.whatIDo"),
-      services: () => t("footer.services", { returnObjects: true }) as string[],
+      services: () =>
+        t("footer.services", { returnObjects: true }) as unknown as string[],
       quickLinks: () => t("footer.quickLinks"),
       getInTouch: () => t("footer.getInTouch"),
       copyright: () => t("footer.copyright"),

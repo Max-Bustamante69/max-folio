@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
-import { useTranslations } from "@/hooks/useLanguage";
+import { useTranslations } from "@/hooks/useTranslations";
 import LanguageToggle from "@/components/LanguageToggle";
 import {
   SunIcon,

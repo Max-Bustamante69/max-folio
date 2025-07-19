@@ -24,6 +24,7 @@
   "experience": {
     "title": "Professional Experience",
     "subtitle": "A journey through innovative projects and impactful solutions across various industries",
+    
     "tabs": {
       "work": "Professional Work",
       "freelance": "Freelance Projects"
@@ -33,6 +34,7 @@
       "completed": "Completed"
     },
     "visitWebsite": "Visit Website",
+    "viewProject": "View Project",
     "achievements": "Key Achievements",
     "metrics": "Impact Metrics",
     "technologies": "Technologies Used",
@@ -162,6 +164,7 @@
     "subtitle": "Ready to bring your ideas to life with cutting-edge technology and exceptional user experiences? Let's build something amazing together.",
     "description": "I'd love to hear about your project. Fill out the form below and I'll get back to you within 24 hours.",
     "form": {
+      "title": "Send me a message",
       "fullName": "Full Name",
       "fullNamePlaceholder": "Your full name",
       "email": "Email Address",
@@ -173,6 +176,8 @@
       "sendMessage": "Send Message",
       "sending": "Sending..."
     },
+    "availability": "Available for work",
+    "availabilityDescription": "Currently accepting new projects for Q1 2025. Typical response time: 2-6 hours.",
     "info": {
       "email": "Email",
       "phone": "Phone",
@@ -183,6 +188,7 @@
       "description": "Available for freelance projects and full-time opportunities. Let's discuss your next big idea.",
       "button": "Quick Email"
     },
+    "getInTouch": "Get In Touch",
     "toasts": {
       "success": {
         "title": "Message sent successfully!",

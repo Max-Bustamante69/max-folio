@@ -5,12 +5,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { GlobeAltIcon, CheckIcon } from "@heroicons/react/24/outline";
 
 const languages = [
   { code: "en", name: "English", flag: "🇺🇸" },
   { code: "es", name: "Español", flag: "🇪🇸" },
+  { code: "ja", name: "日本語", flag: "🇯🇵" },
 ] as const;
 
 const LanguageToggle = () => {

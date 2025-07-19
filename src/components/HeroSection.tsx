@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDownTrayIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
-import { useTranslations } from "@/hooks/useLanguage";
+import { useTranslations } from "@/hooks/useTranslations";
 import heroPortrait from "@/assets/hero-portrait.png";
 
 const HeroSection = () => {
@@ -40,7 +40,7 @@ const HeroSection = () => {
               <span className="gradient-text">{t.hero.name()}</span>
             </h1>
             <p className="text-xl md:text-2xl ">
-              Software Engineering Student & Frontend Developer
+              {t.hero.title()}
             </p>
           </div>
 

@@ -1,0 +1,226 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "experience": "経験",
+    "skills": "スキル",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "greeting": "こんにちは、私は",
+    "name": "マクシミリアーノ",
+    "title": "ソフトウェア工学学生・フロントエンド開発者",
+    "description": "私はEAFIT大学でソフトウェア工学を学ぶ情熱的な学生で、モダンなWeb開発に豊富な経験があります。React、Next.jsを専門とし、ビジネス成果を生み出す美しく機能的なユーザーエクスペリエンスの創造に取り組んでいます。",
+    "currentFocus": "現在の取り組み",
+    "focusItems": {
+      "leadDeveloper": "Ellamau SASのリードフロントエンド開発者",
+      "ecommerce": "Shopify Liquidを使ったスケーラブルなECソリューションの構築",
+      "freelance": "フリーランスのWeb開発プロジェクト"
+    },
+    "buttons": {
+      "getInTouch": "お問い合わせ",
+      "downloadCV": "履歴書ダウンロード"
+    }
+  },
+  "experience": {
+    "title": "職歴",
+    "subtitle": "様々な業界での革新的なプロジェクトとインパクトのあるソリューションへの軌跡",
+    "tabs": {
+      "work": "職歴",
+      "freelance": "フリーランスプロジェクト"
+    },
+    "badges": {
+      "current": "現職",
+      "completed": "完了"
+    },
+    "visitWebsite": "ウェブサイトを見る",
+    "viewProject": "プロジェクトを見る",
+    "achievements": "主な成果",
+    "metrics": "インパクト指標",
+    "technologies": "使用技術",
+    "jobs": {
+      "ellamau": {
+        "title": "リードフロントエンド開発者",
+        "company": "Ellamau SAS",
+        "location": "リモート",
+        "period": "2024年 - 現在",
+        "description": "ECプラットフォームの完全なフロントエンドアーキテクチャと開発をリード。技術スタック全体の計画と実装を担当。",
+        "achievements": [
+          "MongoDB、Next.js、Stripeを使用した完全なECソリューションの設計",
+          "効率的な状態管理のためのReact Queryの実装",
+          "モダンなベストプラクティスによるレスポンシブUIの設計"
+        ],
+        "metrics": {
+          "salesIncrease": "売上増加",
+          "timeline": "納期",
+          "teamSize": "チームサイズ"
+        }
+      },
+      "rh": {
+        "title": "フロントエンド開発者",
+        "company": "RH (Restoration Hardware)",
+        "location": "リモート",
+        "period": "2024年 - 2025年",
+        "description": "Adobe Experience ManagerからContentful Studioへの移行のための再利用可能なコンポーネントを開発し、大幅なコスト削減を実現。",
+        "achievements": [
+          "AEMからContentfulへの移行のためのコンポーネントライブラリを作成",
+          "Material UIとRadix UIコンポーネントの実装",
+          "パフォーマンスとアクセシビリティ基準の最適化",
+          "ピクセルパーフェクトな実装のためのデザインチームとの協力"
+        ],
+        "metrics": {
+          "costReduction": "コスト削減",
+          "componentsBuilt": "構築コンポーネント数",
+          "teamMembers": "チームメンバー"
+        }
+      },
+      "orthofix": {
+        "title": "フロントエンド・Salesforce開発者",
+        "company": "Orthofix",
+        "location": "リモート",
+        "period": "2023年 - 2024年",
+        "description": "Lightning Web ComponentsとSalesforceプラットフォームを使用した患者登録ソフトウェアとセクション管理システムを開発。",
+        "achievements": [
+          "患者登録システムをゼロから構築",
+          "Salesforceによるセクション管理の実装",
+          "UX向上のためのLightning Web Componentsの作成",
+          "医療機器追跡システムとの統合"
+        ],
+        "metrics": {
+          "patientsProcessed": "処理患者数",
+          "systemUptime": "システム稼働率",
+          "processingTime": "処理時間"
+        }
+      },
+      "ibox": {
+        "title": "フロントエンドReact開発者",
+        "company": "iBox SA",
+        "location": "メデジン、コロンビア",
+        "period": "2021年 - 2022年",
+        "description": "インテリジェントロッカーソリューションに焦点を当てたメイン企業ウェブサイトの作成をリードし、ビジネスのデジタルプレゼンスを確立。",
+        "achievements": [
+          "全デバイス対応のレスポンシブデザインの実装",
+          "インタラクティブな製品ショーケースの作成",
+          "企業のデジタルブランドプレゼンスの確立"
+        ],
+        "metrics": {
+          "websiteTraffic": "ウェブサイトトラフィック",
+          "leadGeneration": "リード生成",
+          "pageLoadTime": "ページ読み込み時間"
+        }
+      }
+    },
+    "freelance": {
+      "drHugo": {
+        "title": "Dr. Hugo Diazgranados",
+        "description": "高級歯科に特化した審美歯科医師の個人ウェブサイト"
+      },
+      "sebastian": {
+        "title": "Sebastian Correa Developer",
+        "description": "シニアソフトウェア開発者の個人ポートフォリオ"
+      },
+      "pagui": {
+        "title": "Pagui.co",
+        "description": "バンコロンビア銀行クライアント向けOCR認識付き登録ソフトウェア"
+      },
+      "wordle": {
+        "title": "Wordleクローン",
+        "description": "Vanilla JSで構築されたWordleクローン"
+      }
+    }
+  },
+  "skills": {
+    "title": "技術スキル",
+    "subtitle": "モダンでスケーラブルな美しいWebアプリケーションを構築するための包括的なツールキット",
+    "additionalTitle": "追加技術",
+    "additionalSubtitle": "その他使用するツールと技術",
+    "levels": {
+      "expert": "エキスパート",
+      "advanced": "上級",
+      "intermediate": "中級",
+      "beginner": "初級"
+    },
+    "categories": {
+      "frontend": "フロントエンド",
+      "backend": "バックエンド",
+      "database": "データベース",
+      "tools": "ツール",
+      "languages": "言語"
+    },
+    "descriptions": {
+      "react": "モダンなReactパターンを使った複雑でスケーラブルなWebアプリケーションの構築",
+      "javascript": "ES6+、async/await、関数型プログラミング、モダンなJSパターン",
+      "nextjs": "SSR、APIルート、最適化を含むフルスタックReactフレームワーク",
+      "typescript": "高度なTypeScript機能を使ったタイプセーフな開発",
+      "tailwind": "迅速なUI開発のためのユーティリティファーストCSSフレームワーク",
+      "python": "バックエンド開発、自動化、データ処理",
+      "mongodb": "NoSQLデータベース設計、アグリゲーションパイプライン、パフォーマンス最適化",
+      "html": "HTML5によるWebコンテンツの構造化",
+      "css": "CSS3によるWebコンテンツのスタイリング"
+    }
+  },
+  "contact": {
+    "title": "一緒に働きましょう",
+    "subtitle": "最先端の技術と優れたユーザーエクスペリエンスでアイデアに命を吹き込む準備はできていますか？一緒に素晴らしいものを作りましょう。",
+    "description": "あなたのプロジェクトについてお聞かせください。下記のフォームにご記入いただければ、24時間以内にご連絡いたします。",
+    "form": {
+      "title": "メッセージを送信",
+      "fullName": "お名前",
+      "fullNamePlaceholder": "お名前をご入力ください",
+      "email": "メールアドレス",
+      "emailPlaceholder": "your.email@example.com",
+      "subject": "件名",
+      "subjectPlaceholder": "どのような件でしょうか？",
+      "message": "メッセージ",
+      "messagePlaceholder": "プロジェクト、スケジュール、予算についてお聞かせください...",
+      "sendMessage": "メッセージ送信",
+      "sending": "送信中..."
+    },
+    "availability": "働きたいです",
+    "availabilityDescription": "現在、Q1 2025の新プロジェクトを受け付けています。典型的な返信時間は2-6時間です。",
+    "info": {
+      "email": "メール",
+      "phone": "電話",
+      "location": "所在地"
+    },
+    "quickHire": {
+      "title": "始める準備はできましたか？",
+      "description": "フリーランスプロジェクトとフルタイムの機会をお受けしています。あなたの次の大きなアイデアについて話し合いましょう。",
+      "button": "クイックメール"
+    },
+    "getInTouch": "お問い合わせ",
+    "toasts": {
+      "success": {
+        "title": "メッセージが正常に送信されました！",
+        "description": "メッセージをありがとうございました。間もなくご連絡いたします。"
+      },
+      "error": {
+        "title": "メッセージの送信に失敗しました",
+        "description": "メッセージの送信中にエラーが発生しました。後でもう一度お試しください。"
+      }
+    }
+  },
+  "footer": {
+    "name": "マクシミリアーノ・ブスタマンテ",
+    "title": "ソフトウェアエンジニア・フロントエンド開発者",
+    "description": "モダンな技術で優れたデジタルエクスペリエンスを創造。違いを生み出すスケーラブルで美しく高性能なWebアプリケーションの作成に情熱を注いでいます。",
+    "whatIDo": "私の専門分野",
+    "services": [
+      "フロントエンド開発",
+      "Reactアプリケーション",
+      "Next.jsプロジェクト",
+      "ECソリューション",
+      "UI/UX実装",
+      "パフォーマンス最適化",
+      "レスポンシブデザイン",
+      "API統合"
+    ],
+    "quickLinks": "クイックリンク",
+    "getInTouch": "お問い合わせ",
+    "copyright": "❤️とモダンなWeb技術で作成。すべての権利を保有。"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "おっと！ページが見つかりません",
+    "button": "ホームに戻る"
+  }
+}

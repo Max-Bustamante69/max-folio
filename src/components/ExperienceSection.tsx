@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "@/hooks/useLanguage";
+import { useTranslations } from "@/hooks/useTranslations";
 import {
   CalendarIcon,
   BuildingOffice2Icon,
@@ -554,7 +554,7 @@ const ExperienceSection = () => {
                       rel="noopener noreferrer"
                       className="text-primary hover:text-primary-glow link-animated text-sm font-medium"
                     >
-                      View Project →
+                      {t.experience.viewProject()} →
                     </a>
                   )}
                   {/* External link icon */}

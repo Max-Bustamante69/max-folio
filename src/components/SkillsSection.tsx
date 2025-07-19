@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useTranslations } from "@/hooks/useLanguage";
+import { useTranslations } from "@/hooks/useTranslations";
 
 // Skill icons - using SVG for better performance and consistency
 const skillIcons = {
@@ -52,8 +52,8 @@ const skillIcons = {
             y2="145.02"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#387EB8" />
-            <stop offset="1" stop-color="#366994" />
+            <stop stopColor="#387EB8" />
+            <stop offset="1" stopColor="#366994" />
           </linearGradient>
           <linearGradient
             id="skillIconsPythonDark1"
@@ -63,8 +63,8 @@ const skillIcons = {
             y2="210.522"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFE052" />
-            <stop offset="1" stop-color="#FFC331" />
+            <stop stopColor="#FFE052" />
+            <stop offset="1" stopColor="#FFC331" />
           </linearGradient>
         </defs>
       </g>

@@ -3,7 +3,7 @@ import {
   HeartIcon,
   EnvelopeIcon,
 } from "@heroicons/react/24/outline";
-import { useTranslations } from "@/hooks/useLanguage";
+import { useTranslations } from "@/hooks/useTranslations";
 import mbLogo from "@/assets/mb-logo.png";
 
 const Footer = () => {
