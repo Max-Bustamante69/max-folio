@@ -94,7 +94,7 @@ const Footer = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block text-muted-foreground hover:text-primary transition-colors duration-200 link-animated"
+                  className="block w-fit text-muted-foreground hover:text-primary transition-colors duration-200 link-animated"
                 >
                   {item.name}
                 </a>
