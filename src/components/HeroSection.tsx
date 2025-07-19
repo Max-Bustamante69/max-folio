@@ -11,7 +11,7 @@ const HeroSection = () => {
   const downloadCV = () => {
     // Placeholder for CV download - you can replace with actual CV link
     const link = document.createElement("a");
-    link.href = "#"; // Replace with actual CV URL
+    link.href = "/Maximiliano Bustamante - CV.pdf"; // Replace with actual CV URL
     link.download = "Maximiliano_Bustamante_CV.pdf";
     document.body.appendChild(link);
     link.click();
@@ -47,47 +47,11 @@ const HeroSection = () => {
               in React, Next.js, and creating beautiful, functional user
               experiences that drive business results.
             </p>
-
-            <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-6 space-y-4">
-              <h3 className="text-lg font-semibold text-foreground">
-                Current Focus
-              </h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  Lead Frontend Developer at Ellamau SAS
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary-glow rounded-full"></div>
-                  Building scalable e-commerce solutions with Shopify Liquid
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  Freelance web development projects
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button onClick={scrollToContact} className="btn-hero group">
-              <EnvelopeIcon className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-              Get In Touch
-            </Button>
-            <Button
-              onClick={downloadCV}
-              variant="outline"
-              className="btn-hero-outline group"
-            >
-              <ArrowDownTrayIcon className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-              Download CV
-            </Button>
           </div>
         </div>
 
-        {/* Profile Image */}
-        <div className="flex justify-center lg:justify-end animate-slide-in-left">
+        {/* Profile Image - Mobile: Between sections, Desktop: Right side */}
+        <div className="flex justify-center lg:justify-end animate-slide-in-left order-2 lg:order-1">
           <div className="relative">
             {/* Glow effect behind image */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary-glow rounded-3xl blur-2xl opacity-30 animate-pulse-glow"></div>
@@ -111,6 +75,45 @@ const HeroSection = () => {
               className="absolute top-1/2 -left-8 w-4 h-4 bg-accent rounded-full animate-bounce opacity-40"
               style={{ animationDelay: "2s" }}
             ></div>
+          </div>
+        </div>
+
+        {/* Current Focus Section - Mobile: After photo, Desktop: Left side */}
+        <div className="order-3 lg:order-2">
+          <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-6 space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">
+              Current Focus
+            </h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                Lead Frontend Developer at Ellamau SAS
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary-glow rounded-full"></div>
+                Building scalable e-commerce solutions with Shopify Liquid
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                Freelance web development projects
+              </li>
+            </ul>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <Button onClick={scrollToContact} className="btn-hero group">
+              <EnvelopeIcon className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
+              Get In Touch
+            </Button>
+            <Button
+              onClick={downloadCV}
+              variant="outline"
+              className="btn-hero-outline group"
+            >
+              <ArrowDownTrayIcon className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+              Download CV
+            </Button>
           </div>
         </div>
       </div>
