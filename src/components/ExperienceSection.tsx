@@ -220,7 +220,7 @@ const ExperienceSection = () => {
   const selectedExp = experiences.find((exp) => exp.id === selectedExperience);
 
   return (
-    <section id="experience" className="py-24 px-4 relative overflow-hidden">
+    <section id="experience" className="py-24 px-4 relative overflow-hidden z-10">
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent pointer-events-none" />
 
