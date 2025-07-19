@@ -19,43 +19,35 @@ const LanguageToggle = () => {
   const currentLanguage = languages.find((lang) => lang.code === language);
 
   return (
-    <div className="flex items-center gap-2">
-      {/* Current Language Flag */}
-      <div className="text-lg" title={currentLanguage?.name}>
-        {currentLanguage?.flag}
-      </div>
-
-      {/* Language Selector */}
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="w-8 h-8 sm:w-10 sm:h-10 relative hover:bg-primary/10 transition-colors duration-200"
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="w-8 h-8 sm:w-10 sm:h-10 relative hover:bg-primary/10 transition-colors duration-200 "
+        >
+          <GlobeAltIcon className="h-5 w-5 sm:h-6 sm:w-6" />
+          <span className="sr-only">Toggle language</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-48">
+        {languages.map((lang) => (
+          <DropdownMenuItem
+            key={lang.code}
+            className="flex items-center justify-between cursor-pointer"
+            onClick={() => setLanguage(lang.code)}
           >
-            <GlobeAltIcon className="h-5 w-5 sm:h-6 sm:w-6" />
-            <span className="sr-only">Toggle language</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-48">
-          {languages.map((lang) => (
-            <DropdownMenuItem
-              key={lang.code}
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => setLanguage(lang.code)}
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-lg">{lang.flag}</span>
-                <span className="text-sm font-medium">{lang.name}</span>
-              </div>
-              {language === lang.code && (
-                <CheckIcon className="h-4 w-4 text-primary" />
-              )}
-            </DropdownMenuItem>
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
-    </div>
+            <div className="flex items-center gap-2">
+              <span className="text-lg">{lang.flag}</span>
+              <span className="text-sm font-medium">{lang.name}</span>
+            </div>
+            {language === lang.code && (
+              <CheckIcon className="h-4 w-4 text-primary" />
+            )}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 
