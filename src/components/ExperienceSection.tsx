@@ -219,8 +219,23 @@ const ExperienceSection = () => {
 
   const selectedExp = experiences.find((exp) => exp.id === selectedExperience);
 
+  const handleExperienceSelect = (experienceId: string) => {
+    setSelectedExperience(experienceId);
+    // Scroll to the beginning of the experience section
+    const experienceSection = document.getElementById("experience");
+    if (experienceSection) {
+      experienceSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
-    <section id="experience" className="py-24 px-4 relative overflow-hidden z-10">
+    <section
+      id="experience"
+      className="py-24 px-4 relative overflow-hidden z-10"
+    >
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent pointer-events-none" />
 
@@ -270,7 +285,7 @@ const ExperienceSection = () => {
                       ? "card-glow border-primary/50 bg-primary/5"
                       : "card-glow hover:border-primary/30"
                   }`}
-                  onClick={() => setSelectedExperience(exp.id)}
+                  onClick={() => handleExperienceSelect(exp.id)}
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
