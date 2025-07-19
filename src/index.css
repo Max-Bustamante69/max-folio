@@ -162,6 +162,8 @@
 @layer base {
   * {
     @apply border-border;
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
   }
 
   body {
@@ -178,8 +180,6 @@
     @apply font-semibold tracking-tight;
   }
 }
-
-
 
 @layer components {
   /* Hero Button Variants */
