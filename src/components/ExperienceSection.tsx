@@ -261,7 +261,7 @@ const ExperienceSection = () => {
         {activeTab === "work" && (
           <div className="grid lg:grid-cols-12 gap-8">
             {/* Timeline Navigation */}
-            <div className="lg:col-span-4 space-y-4">
+            <div className="lg:col-span-4 space-y-4 order-2 lg:order-1">
               {experiences.map((exp, index) => (
                 <Card
                   key={exp.id}
@@ -316,7 +316,7 @@ const ExperienceSection = () => {
             </div>
 
             {/* Experience Details */}
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 order-1 lg:order-2">
               {selectedExp && (
                 <Card className="card-glow animate-fade-in-up">
                   <CardContent className="p-8">
