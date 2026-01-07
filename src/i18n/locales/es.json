@@ -35,9 +35,22 @@
     "visitWebsite": "Visitar Sitio Web",
     "viewProject": "Ver Proyecto",
     "achievements": "Logros Clave",
-    "metrics": "Métricas de Impacto",
     "technologies": "Tecnologías Utilizadas",
     "jobs": {
+      "abidata": {
+        "title": "Desarrollador Full Stack",
+        "company": "ABI Data",
+        "location": "Medellín, Colombia",
+        "period": "2025",
+        "description": "Desarrollé software de newsletters empresariales que permite a las empresas crear, gestionar y distribuir campañas de correo personalizadas. Construí tanto la visualización frontend como el panel de administración, junto con endpoints API backend para gestión de newsletters y contactos.",
+        "achievements": [
+          "Diseñé y construí sistema de visualización de newsletters con React Email",
+          "Desarrollé panel de administración para gestión y personalización de newsletters",
+          "Creé endpoints API RESTful para contactos y operaciones de newsletters",
+          "Integré frontend con servicios backend para flujo de datos sin interrupciones"
+        ],
+        "metrics": ["Endpoints API", "Gestión de Contactos", "Personalización"]
+      },
       "ellamau": {
         "title": "Desarrollador Frontend Líder",
         "company": "Ellamau SAS",
@@ -49,11 +62,7 @@
           "Implementación de React Query para gestión eficiente del estado",
           "Diseño de UI responsive con mejores prácticas modernas"
         ],
-        "metrics": {
-          "salesIncrease": "Incremento en Ventas",
-          "timeline": "Cronograma",
-          "teamSize": "Tamaño del Equipo"
-        }
+        "metrics": ["Incremento en Ventas", "Cronograma", "Tamaño del Equipo"]
       },
       "rh": {
         "title": "Desarrollador Frontend",
@@ -67,11 +76,11 @@
           "Optimización de rendimiento y estándares de accesibilidad",
           "Colaboración con equipo de diseño para implementaciones pixel-perfect"
         ],
-        "metrics": {
-          "costReduction": "Reducción de Costos",
-          "componentsBuilt": "Componentes Construidos",
-          "teamMembers": "Miembros del Equipo"
-        }
+        "metrics": [
+          "Reducción de Costos",
+          "Componentes Construidos",
+          "Miembros del Equipo"
+        ]
       },
       "orthofix": {
         "title": "Desarrollador Frontend y Salesforce",
@@ -85,11 +94,11 @@
           "Creación de Lightning Web Components para UX mejorada",
           "Integración con sistemas de seguimiento de dispositivos médicos"
         ],
-        "metrics": {
-          "patientsProcessed": "Pacientes Procesados",
-          "systemUptime": "Tiempo de Actividad del Sistema",
-          "processingTime": "Tiempo de Procesamiento"
-        }
+        "metrics": [
+          "Pacientes Procesados",
+          "Tiempo de Actividad",
+          "Tiempo de Procesamiento"
+        ]
       },
       "ibox": {
         "title": "Desarrollador Frontend React",
@@ -102,11 +111,11 @@
           "Creación de showcase interactivo de productos",
           "Establecimiento de la presencia de marca digital de la empresa"
         ],
-        "metrics": {
-          "websiteTraffic": "Tráfico del Sitio Web",
-          "leadGeneration": "Generación de Leads",
-          "pageLoadTime": "Tiempo de Carga de Página"
-        }
+        "metrics": [
+          "Tráfico del Sitio",
+          "Generación de Leads",
+          "Tiempo de Carga"
+        ]
       }
     },
     "freelance": {

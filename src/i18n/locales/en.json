@@ -24,7 +24,6 @@
   "experience": {
     "title": "Professional Experience",
     "subtitle": "A journey through innovative projects and impactful solutions across various industries",
-    
     "tabs": {
       "work": "Professional Work",
       "freelance": "Freelance Projects"
@@ -36,9 +35,22 @@
     "visitWebsite": "Visit Website",
     "viewProject": "View Project",
     "achievements": "Key Achievements",
-    "metrics": "Impact Metrics",
     "technologies": "Technologies Used",
     "jobs": {
+      "abidata": {
+        "title": "Full Stack Developer",
+        "company": "ABI Data",
+        "location": "Medellín, Colombia",
+        "period": "2025",
+        "description": "Developed enterprise newsletter software enabling businesses to create, manage, and distribute customized email campaigns. Built both frontend visualization and admin panel, along with backend API endpoints for newsletter and contact management.",
+        "achievements": [
+          "Designed and built newsletter visualization system with React Email",
+          "Developed admin panel for newsletter management and customization",
+          "Created RESTful API endpoints for contacts and newsletter operations",
+          "Integrated frontend with backend services for seamless data flow"
+        ],
+        "metrics": ["API Endpoints", "Contact Management", "Customization"]
+      },
       "ellamau": {
         "title": "Lead Frontend Developer",
         "company": "Ellamau SAS",
@@ -50,17 +62,13 @@
           "Implemented React Query for efficient state management",
           "Designed responsive UI with modern best practices"
         ],
-        "metrics": {
-          "salesIncrease": "Sales Increase",
-          "timeline": "Timeline",
-          "teamSize": "Team Size"
-        }
+        "metrics": ["Sales Increase", "Timeline", "Team Size"]
       },
       "rh": {
         "title": "Frontend Developer",
         "company": "RH (Restoration Hardware)",
         "location": "Remote",
-        "period": "2024 - 2025",
+        "period": "2024 - 2026",
         "description": "Developed reusable components for migration from Adobe Experience Manager to Contentful Studio, achieving significant cost reduction.",
         "achievements": [
           "Created component library for AEM to Contentful migration",
@@ -68,11 +76,7 @@
           "Optimized performance and accessibility standards",
           "Collaborated with design team for pixel-perfect implementations"
         ],
-        "metrics": {
-          "costReduction": "Cost Reduction",
-          "componentsBuilt": "Components Built",
-          "teamMembers": "Team Members"
-        }
+        "metrics": ["Cost Reduction", "Components Built", "Team Members"]
       },
       "orthofix": {
         "title": "Frontend & Salesforce Developer",
@@ -86,11 +90,7 @@
           "Created Lightning Web Components for enhanced UX",
           "Integrated with medical device tracking systems"
         ],
-        "metrics": {
-          "patientsProcessed": "Patients Processed",
-          "systemUptime": "System Uptime",
-          "processingTime": "Processing Time"
-        }
+        "metrics": ["Patients Processed", "System Uptime", "Processing Time"]
       },
       "ibox": {
         "title": "Frontend React Developer",
@@ -103,11 +103,7 @@
           "Created interactive product showcase",
           "Established company's digital brand presence"
         ],
-        "metrics": {
-          "websiteTraffic": "Website Traffic",
-          "leadGeneration": "Lead Generation",
-          "pageLoadTime": "Page Load Time"
-        }
+        "metrics": ["Website Traffic", "Lead Generation", "Page Load Time"]
       }
     },
     "freelance": {
@@ -177,7 +173,7 @@
       "sending": "Sending..."
     },
     "availability": "Available for work",
-    "availabilityDescription": "Currently accepting new projects for Q1 2025. Typical response time: 2-6 hours.",
+    "availabilityDescription": "Currently accepting new projects for Q1 2026. Typical response time: 2-6 hours.",
     "info": {
       "email": "Email",
       "phone": "Phone",

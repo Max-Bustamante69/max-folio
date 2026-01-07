@@ -35,9 +35,22 @@
     "visitWebsite": "ウェブサイトを見る",
     "viewProject": "プロジェクトを見る",
     "achievements": "主な成果",
-    "metrics": "インパクト指標",
     "technologies": "使用技術",
     "jobs": {
+      "abidata": {
+        "title": "フルスタック開発者",
+        "company": "ABI Data",
+        "location": "メデジン、コロンビア",
+        "period": "2025年",
+        "description": "企業がカスタマイズされたメールキャンペーンを作成、管理、配信できるエンタープライズニュースレターソフトウェアを開発。フロントエンドの可視化と管理パネル、およびニュースレターと連絡先管理のためのバックエンドAPIエンドポイントを構築。",
+        "achievements": [
+          "React Emailを使用したニュースレター可視化システムの設計と構築",
+          "ニュースレター管理とカスタマイズのための管理パネルを開発",
+          "連絡先とニュースレター操作用のRESTful APIエンドポイントを作成",
+          "シームレスなデータフローのためにフロントエンドとバックエンドサービスを統合"
+        ],
+        "metrics": ["APIエンドポイント", "連絡先管理", "カスタマイズ"]
+      },
       "ellamau": {
         "title": "リードフロントエンド開発者",
         "company": "Ellamau SAS",
@@ -49,11 +62,7 @@
           "効率的な状態管理のためのReact Queryの実装",
           "モダンなベストプラクティスによるレスポンシブUIの設計"
         ],
-        "metrics": {
-          "salesIncrease": "売上増加",
-          "timeline": "納期",
-          "teamSize": "チームサイズ"
-        }
+        "metrics": ["売上増加", "納期", "チームサイズ"]
       },
       "rh": {
         "title": "フロントエンド開発者",
@@ -67,11 +76,7 @@
           "パフォーマンスとアクセシビリティ基準の最適化",
           "ピクセルパーフェクトな実装のためのデザインチームとの協力"
         ],
-        "metrics": {
-          "costReduction": "コスト削減",
-          "componentsBuilt": "構築コンポーネント数",
-          "teamMembers": "チームメンバー"
-        }
+        "metrics": ["コスト削減", "構築コンポーネント数", "チームメンバー"]
       },
       "orthofix": {
         "title": "フロントエンド・Salesforce開発者",
@@ -85,11 +90,7 @@
           "UX向上のためのLightning Web Componentsの作成",
           "医療機器追跡システムとの統合"
         ],
-        "metrics": {
-          "patientsProcessed": "処理患者数",
-          "systemUptime": "システム稼働率",
-          "processingTime": "処理時間"
-        }
+        "metrics": ["処理患者数", "システム稼働率", "処理時間"]
       },
       "ibox": {
         "title": "フロントエンドReact開発者",
@@ -102,11 +103,11 @@
           "インタラクティブな製品ショーケースの作成",
           "企業のデジタルブランドプレゼンスの確立"
         ],
-        "metrics": {
-          "websiteTraffic": "ウェブサイトトラフィック",
-          "leadGeneration": "リード生成",
-          "pageLoadTime": "ページ読み込み時間"
-        }
+        "metrics": [
+          "ウェブサイトトラフィック",
+          "リード生成",
+          "ページ読み込み時間"
+        ]
       }
     },
     "freelance": {

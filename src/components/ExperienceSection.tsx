@@ -13,55 +13,33 @@ import {
   ChevronUpIcon,
 } from "@heroicons/react/24/outline";
 
-interface Experience {
+// =============================================================================
+// JOB CONFIGURATION
+// To add a new job:
+// 1. Add translations to all locale files (en.json, es.json, ja.json)
+// 2. Add a new entry to JOB_CONFIGS below
+// =============================================================================
+
+interface JobConfig {
   id: string;
-  title: string;
-  company: string;
-  location: string;
-  period: string;
   type: "full-time" | "freelance" | "current";
-  description: string;
-  achievements: string[];
-  metrics: {
-    label: string;
-    value: string;
-    icon: React.ComponentType<{ className?: string }>;
-  }[];
+  startYear: number; // Used for sorting: current jobs first, then by start year descending
+  metricValues: string[];
+  metricIcons: React.ComponentType<{ className?: string }>[];
   technologies: string[];
   website?: string;
   logo?: string;
 }
 
-// Function to get translated experiences
-const getExperiences = (
-  t: ReturnType<typeof useTranslations>
-): Experience[] => [
+// Jobs are sorted: current jobs first, then by startYear descending
+const JOB_CONFIGS: JobConfig[] = [
+  // === CURRENT JOBS (appear first) ===
   {
     id: "ellamau",
-    title: t.experience.jobs.ellamau.title(),
-    company: t.experience.jobs.ellamau.company(),
-    location: t.experience.jobs.ellamau.location(),
-    period: t.experience.jobs.ellamau.period(),
     type: "current",
-    description: t.experience.jobs.ellamau.description(),
-    achievements: t.experience.jobs.ellamau.achievements(),
-    metrics: [
-      {
-        label: t.experience.jobs.ellamau.metrics.salesIncrease(),
-        value: "60%",
-        icon: ChartBarIcon,
-      },
-      {
-        label: t.experience.jobs.ellamau.metrics.timeline(),
-        value: "30 Days",
-        icon: CalendarIcon,
-      },
-      {
-        label: t.experience.jobs.ellamau.metrics.teamSize(),
-        value: "3",
-        icon: UsersIcon,
-      },
-    ],
+    startYear: 2024,
+    metricValues: ["60%", "30 Days", "3"],
+    metricIcons: [ChartBarIcon, CalendarIcon, UsersIcon],
     technologies: [
       "React",
       "Next.js",
@@ -73,32 +51,30 @@ const getExperiences = (
     website: "https://ellamau.vercel.app/",
     logo: "https://www.ellamauusa.com/cdn/shop/files/logo_ellamau.png?height=628&pad_color=ffffff&v=1743481196&width=1200",
   },
+  // === PAST JOBS (sorted by startYear descending) ===
+  {
+    id: "abidata",
+    type: "full-time",
+    startYear: 2025,
+    metricValues: ["15+", "+40%", "20+"],
+    metricIcons: [BuildingOffice2Icon, UsersIcon, ChartBarIcon],
+    technologies: [
+      "Django",
+      "Next.js",
+      "Redux",
+      "React Query",
+      "React Email",
+      "PostgreSQL",
+    ],
+    website: "https://abidata.co/en/",
+    logo: "https://abidata.co/en/wp-content/uploads/2025/05/logo-abi.webp",
+  },
   {
     id: "rh",
-    title: t.experience.jobs.rh.title(),
-    company: t.experience.jobs.rh.company(),
-    location: t.experience.jobs.rh.location(),
-    period: t.experience.jobs.rh.period(),
     type: "full-time",
-    description: t.experience.jobs.rh.description(),
-    achievements: t.experience.jobs.rh.achievements(),
-    metrics: [
-      {
-        label: t.experience.jobs.rh.metrics.costReduction(),
-        value: "60%",
-        icon: ChartBarIcon,
-      },
-      {
-        label: t.experience.jobs.rh.metrics.componentsBuilt(),
-        value: "50+",
-        icon: BuildingOffice2Icon,
-      },
-      {
-        label: t.experience.jobs.rh.metrics.teamMembers(),
-        value: "12",
-        icon: UsersIcon,
-      },
-    ],
+    startYear: 2024,
+    metricValues: ["60%", "50+", "12"],
+    metricIcons: [ChartBarIcon, BuildingOffice2Icon, UsersIcon],
     technologies: [
       "React",
       "Material UI",
@@ -112,30 +88,10 @@ const getExperiences = (
   },
   {
     id: "orthofix",
-    title: t.experience.jobs.orthofix.title(),
-    company: t.experience.jobs.orthofix.company(),
-    location: t.experience.jobs.orthofix.location(),
-    period: t.experience.jobs.orthofix.period(),
     type: "full-time",
-    description: t.experience.jobs.orthofix.description(),
-    achievements: t.experience.jobs.orthofix.achievements(),
-    metrics: [
-      {
-        label: t.experience.jobs.orthofix.metrics.patientsProcessed(),
-        value: "1000+",
-        icon: UsersIcon,
-      },
-      {
-        label: t.experience.jobs.orthofix.metrics.systemUptime(),
-        value: "99.9%",
-        icon: ChartBarIcon,
-      },
-      {
-        label: t.experience.jobs.orthofix.metrics.processingTime(),
-        value: "-75%",
-        icon: CalendarIcon,
-      },
-    ],
+    startYear: 2023,
+    metricValues: ["1000+", "99.9%", "-75%"],
+    metricIcons: [UsersIcon, ChartBarIcon, CalendarIcon],
     technologies: [
       "Lightning Web Components",
       "Salesforce",
@@ -148,80 +104,74 @@ const getExperiences = (
   },
   {
     id: "ibox",
-    title: t.experience.jobs.ibox.title(),
-    company: t.experience.jobs.ibox.company(),
-    location: t.experience.jobs.ibox.location(),
-    period: t.experience.jobs.ibox.period(),
     type: "full-time",
-    description: t.experience.jobs.ibox.description(),
-    achievements: t.experience.jobs.ibox.achievements(),
-    metrics: [
-      {
-        label: t.experience.jobs.ibox.metrics.websiteTraffic(),
-        value: "+200%",
-        icon: ChartBarIcon,
-      },
-      {
-        label: t.experience.jobs.ibox.metrics.leadGeneration(),
-        value: "+150%",
-        icon: UsersIcon,
-      },
-      {
-        label: t.experience.jobs.ibox.metrics.pageLoadTime(),
-        value: "1.2s",
-        icon: CalendarIcon,
-      },
-    ],
+    startYear: 2021,
+    metricValues: ["+200%", "+150%", "1.2s"],
+    metricIcons: [ChartBarIcon, UsersIcon, CalendarIcon],
     technologies: ["React", "JavaScript", "CSS3", "HTML5", "Responsive Design"],
     website: "https://www.iboxsm.com/",
     logo: "https://www.appiboxsm.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo_ibox.01cac8c8.png&w=1200&q=75",
   },
 ];
 
-// Function to get translated freelance projects
-const getFreelanceProjects = (t: ReturnType<typeof useTranslations>) => [
+// =============================================================================
+// FREELANCE CONFIGURATION
+// To add a new freelance project:
+// 1. Add translations to all locale files (en.json, es.json, ja.json)
+// 2. Add a new entry to FREELANCE_CONFIGS below
+// =============================================================================
+
+interface FreelanceConfig {
+  id: string;
+  technologies: string[];
+  website: string;
+}
+
+const FREELANCE_CONFIGS: FreelanceConfig[] = [
   {
-    title: t.experience.freelance.drHugo.title(),
-    description: t.experience.freelance.drHugo.description(),
+    id: "drHugo",
     technologies: ["WordPress", "Custom PHP", "CSS"],
     website: "https://drhugodiazgranados.com/",
   },
   {
-    title: t.experience.freelance.sebastian.title(),
-    description: t.experience.freelance.sebastian.description(),
+    id: "sebastian",
     technologies: ["Astro.js", "TypeScript", "Tailwind CSS"],
     website: "https://www.scorrea.dev/",
   },
   {
-    title: t.experience.freelance.pagui.title(),
-    description: t.experience.freelance.pagui.description(),
+    id: "pagui",
     technologies: ["Django", "Next.js", "OCR API", "PostgreSQL"],
     website: "https://pagui-kyc.vercel.app/",
   },
   {
-    title: t.experience.freelance.wordle.title(),
-    description: t.experience.freelance.wordle.description(),
+    id: "wordle",
     technologies: ["Vanilla JS", "HTML", "CSS"],
     website: "https://wordle-max.vercel.app/",
   },
 ];
 
+// =============================================================================
+// COMPONENT
+// =============================================================================
+
 const ExperienceSection = () => {
   const t = useTranslations();
-  const experiences = getExperiences(t);
-  const freelanceProjects = getFreelanceProjects(t);
 
   const [selectedExperience, setSelectedExperience] = useState<string>(
-    experiences[0].id
+    JOB_CONFIGS[0].id
   );
   const [activeTab, setActiveTab] = useState<"work" | "freelance">("work");
   const [isAchievementsOpen, setIsAchievementsOpen] = useState(false);
 
-  const selectedExp = experiences.find((exp) => exp.id === selectedExperience);
+  const selectedConfig = JOB_CONFIGS.find(
+    (job) => job.id === selectedExperience
+  );
+  const selectedJob = selectedConfig
+    ? t.experience.getJob(selectedConfig.id)
+    : null;
 
   const handleExperienceSelect = (experienceId: string) => {
     setSelectedExperience(experienceId);
-    // Scroll to the beginning of the experience section
     const experienceSection = document.getElementById("experience");
     if (experienceSection) {
       experienceSection.scrollIntoView({
@@ -277,62 +227,65 @@ const ExperienceSection = () => {
           <div className="grid lg:grid-cols-12 gap-8">
             {/* Timeline Navigation */}
             <div className="lg:col-span-4 space-y-4 order-2 lg:order-1">
-              {experiences.map((exp, index) => (
-                <Card
-                  key={exp.id}
-                  className={`cursor-pointer transition-all duration-300 hover:scale-105 relative ${
-                    selectedExperience === exp.id
-                      ? "card-glow border-primary/50 bg-primary/5"
-                      : "card-glow hover:border-primary/30"
-                  }`}
-                  onClick={() => handleExperienceSelect(exp.id)}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div
-                          className={`w-4 h-4 rounded-full mt-1 ${
-                            exp.type === "current"
-                              ? "bg-green-500 animate-pulse"
-                              : exp.type === "full-time"
-                              ? "bg-primary"
-                              : "bg-primary-glow"
-                          }`}
-                        />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <h3 className="font-semibold text-foreground mb-1">
-                          {exp.title}
-                        </h3>
-                        <p className="text-primary font-medium mb-2">
-                          {exp.company}
-                        </p>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CalendarIcon className="w-4 h-4" />
-                          {exp.period}
+              {JOB_CONFIGS.map((config) => {
+                const job = t.experience.getJob(config.id);
+                return (
+                  <Card
+                    key={config.id}
+                    className={`cursor-pointer transition-all duration-300 hover:scale-105 relative ${
+                      selectedExperience === config.id
+                        ? "card-glow border-primary/50 bg-primary/5"
+                        : "card-glow hover:border-primary/30"
+                    }`}
+                    onClick={() => handleExperienceSelect(config.id)}
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0">
+                          <div
+                            className={`w-4 h-4 rounded-full mt-1 ${
+                              config.type === "current"
+                                ? "bg-green-500 animate-pulse"
+                                : config.type === "full-time"
+                                ? "bg-primary"
+                                : "bg-primary-glow"
+                            }`}
+                          />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="font-semibold text-foreground mb-1">
+                            {job.title()}
+                          </h3>
+                          <p className="text-primary font-medium mb-2">
+                            {job.company()}
+                          </p>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <CalendarIcon className="w-4 h-4" />
+                            {job.period()}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    {/* External link icon */}
-                    {exp.website && (
-                      <a
-                        href={exp.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="absolute top-4 right-4 text-black dark:text-white hover:text-primary transition-colors duration-200"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ArrowTopRightOnSquareIcon className="w-5 h-5" />
-                      </a>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
+                      {/* External link icon */}
+                      {config.website && (
+                        <a
+                          href={config.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="absolute top-4 right-4 text-black dark:text-white hover:text-primary transition-colors duration-200"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <ArrowTopRightOnSquareIcon className="w-5 h-5" />
+                        </a>
+                      )}
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
 
             {/* Experience Details */}
             <div className="lg:col-span-8 order-1 lg:order-2">
-              {selectedExp && (
+              {selectedConfig && selectedJob && (
                 <Card className="card-glow animate-fade-in-up">
                   <CardContent className="p-8">
                     <div className="space-y-6">
@@ -340,12 +293,12 @@ const ExperienceSection = () => {
                       <div className="space-y-4">
                         <div className="flex flex-wrap items-start gap-4">
                           {/* Company Logo */}
-                          {selectedExp.logo && (
+                          {selectedConfig.logo && (
                             <div className="flex-shrink-0">
-                              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white  rounded-xl border-2 border-gray-200 p-2 flex items-center justify-center shadow-sm">
+                              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl border-2 border-gray-200 p-2 flex items-center justify-center shadow-sm">
                                 <img
-                                  src={selectedExp.logo}
-                                  alt={`${selectedExp.company} logo`}
+                                  src={selectedConfig.logo}
+                                  alt={`${selectedJob.company()} logo`}
                                   className="w-full h-full object-contain"
                                   onError={(e) => {
                                     const target = e.target as HTMLImageElement;
@@ -358,16 +311,16 @@ const ExperienceSection = () => {
                           <div className="flex-1">
                             <div className="flex flex-wrap items-center gap-3 mb-3">
                               <h3 className="text-2xl font-bold text-foreground">
-                                {selectedExp.title}
+                                {selectedJob.title()}
                               </h3>
                               <Badge
                                 variant={
-                                  selectedExp.type === "current"
+                                  selectedConfig.type === "current"
                                     ? "default"
                                     : "secondary"
                                 }
                               >
-                                {selectedExp.type === "current"
+                                {selectedConfig.type === "current"
                                   ? t.experience.badges.current()
                                   : t.experience.badges.completed()}
                               </Badge>
@@ -375,15 +328,15 @@ const ExperienceSection = () => {
                             <div className="flex items-center gap-2 text-muted-foreground">
                               <BuildingOffice2Icon className="w-5 h-5" />
                               <span className="font-medium">
-                                {selectedExp.company}
+                                {selectedJob.company()}
                               </span>
                               <span>•</span>
-                              <span>{selectedExp.location}</span>
-                              {selectedExp.website && (
+                              <span>{selectedJob.location()}</span>
+                              {selectedConfig.website && (
                                 <>
                                   <span className="hidden sm:inline">•</span>
                                   <a
-                                    href={selectedExp.website}
+                                    href={selectedConfig.website}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-primary hover:text-primary-glow link-animated hidden sm:inline"
@@ -399,25 +352,28 @@ const ExperienceSection = () => {
 
                       {/* Description */}
                       <p className="text-muted-foreground leading-relaxed">
-                        {selectedExp.description}
+                        {selectedJob.description()}
                       </p>
 
                       {/* Metrics */}
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        {selectedExp.metrics.map((metric, index) => (
-                          <div
-                            key={index}
-                            className="bg-muted/30 rounded-xl p-4 text-center"
-                          >
-                            <metric.icon className="w-6 h-6 mx-auto mb-2 text-primary" />
-                            <div className="text-2xl font-bold text-foreground">
-                              {metric.value}
+                        {selectedJob.metrics().map((metricLabel, index) => {
+                          const MetricIcon = selectedConfig.metricIcons[index];
+                          return (
+                            <div
+                              key={index}
+                              className="bg-muted/30 rounded-xl p-4 text-center"
+                            >
+                              <MetricIcon className="w-6 h-6 mx-auto mb-2 text-primary" />
+                              <div className="text-2xl font-bold text-foreground">
+                                {selectedConfig.metricValues[index]}
+                              </div>
+                              <div className="text-sm text-muted-foreground">
+                                {metricLabel}
+                              </div>
                             </div>
-                            <div className="text-sm text-muted-foreground">
-                              {metric.label}
-                            </div>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
 
                       {/* Achievements - Desktop */}
@@ -426,8 +382,9 @@ const ExperienceSection = () => {
                           {t.experience.achievements()}
                         </h4>
                         <ul className="space-y-2">
-                          {selectedExp.achievements.map(
-                            (achievement, index) => (
+                          {selectedJob
+                            .achievements()
+                            .map((achievement, index) => (
                               <li
                                 key={index}
                                 className="flex items-start gap-3"
@@ -437,8 +394,7 @@ const ExperienceSection = () => {
                                   {achievement}
                                 </span>
                               </li>
-                            )
-                          )}
+                            ))}
                         </ul>
                       </div>
 
@@ -472,8 +428,9 @@ const ExperienceSection = () => {
                             `}
                           >
                             <div className="p-4 space-y-3">
-                              {selectedExp.achievements.map(
-                                (achievement, index) => (
+                              {selectedJob
+                                .achievements()
+                                .map((achievement, index) => (
                                   <div
                                     key={index}
                                     className={`flex items-start gap-3 transition-all duration-300 transform
@@ -493,8 +450,7 @@ const ExperienceSection = () => {
                                       {achievement}
                                     </span>
                                   </div>
-                                )
-                              )}
+                                ))}
                             </div>
                           </div>
                         </div>
@@ -506,7 +462,7 @@ const ExperienceSection = () => {
                           {t.experience.technologies()}
                         </h4>
                         <div className="flex flex-wrap gap-2">
-                          {selectedExp.technologies.map((tech, index) => (
+                          {selectedConfig.technologies.map((tech, index) => (
                             <Badge
                               key={index}
                               variant="outline"
@@ -520,9 +476,9 @@ const ExperienceSection = () => {
                     </div>
 
                     {/* External link icon for mobile */}
-                    {selectedExp.website && (
+                    {selectedConfig.website && (
                       <a
-                        href={selectedExp.website}
+                        href={selectedConfig.website}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="absolute top-6 right-6 text-black dark:text-white hover:text-primary transition-colors duration-200 sm:hidden"
@@ -539,53 +495,56 @@ const ExperienceSection = () => {
 
         {activeTab === "freelance" && (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in-up">
-            {freelanceProjects.map((project, index) => (
-              <Card
-                key={index}
-                className="card-glow hover:scale-105 transition-all duration-300 relative"
-              >
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-foreground">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge
-                        key={techIndex}
-                        variant="outline"
-                        className="text-xs"
+            {FREELANCE_CONFIGS.map((config) => {
+              const project = t.experience.getFreelance(config.id);
+              return (
+                <Card
+                  key={config.id}
+                  className="card-glow hover:scale-105 transition-all duration-300 relative"
+                >
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-3 text-foreground">
+                      {project.title()}
+                    </h3>
+                    <p className="text-muted-foreground mb-4">
+                      {project.description()}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {config.technologies.map((tech, techIndex) => (
+                        <Badge
+                          key={techIndex}
+                          variant="outline"
+                          className="text-xs"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                    {config.website !== "#" && (
+                      <a
+                        href={config.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:text-primary-glow link-animated text-sm font-medium"
                       >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                  {project.website !== "#" && (
-                    <a
-                      href={project.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-primary-glow link-animated text-sm font-medium"
-                    >
-                      {t.experience.viewProject()} →
-                    </a>
-                  )}
-                  {/* External link icon */}
-                  {project.website !== "#" && (
-                    <a
-                      href={project.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute top-4 right-4 text-black dark:text-white hover:text-primary transition-colors duration-200"
-                    >
-                      <ArrowTopRightOnSquareIcon className="w-5 h-5" />
-                    </a>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
+                        {t.experience.viewProject()} →
+                      </a>
+                    )}
+                    {/* External link icon */}
+                    {config.website !== "#" && (
+                      <a
+                        href={config.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute top-4 right-4 text-black dark:text-white hover:text-primary transition-colors duration-200"
+                      >
+                        <ArrowTopRightOnSquareIcon className="w-5 h-5" />
+                      </a>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         )}
       </div>
