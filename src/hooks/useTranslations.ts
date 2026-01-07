@@ -1,8 +1,47 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 
+// Type definitions for job and freelance translations
+export interface JobTranslations {
+  title: () => string;
+  company: () => string;
+  location: () => string;
+  period: () => string;
+  description: () => string;
+  achievements: () => string[];
+  metrics: () => string[];
+}
+
+export interface FreelanceTranslations {
+  title: () => string;
+  description: () => string;
+}
+
 // Type-safe translation hook with autocomplete
 export const useTranslations = () => {
   const { t } = useLanguage();
+
+  // Dynamic job translation getter - works for any job ID
+  const getJob = (jobId: string): JobTranslations => ({
+    title: () => t(`experience.jobs.${jobId}.title`),
+    company: () => t(`experience.jobs.${jobId}.company`),
+    location: () => t(`experience.jobs.${jobId}.location`),
+    period: () => t(`experience.jobs.${jobId}.period`),
+    description: () => t(`experience.jobs.${jobId}.description`),
+    achievements: () =>
+      t(`experience.jobs.${jobId}.achievements`, {
+        returnObjects: true,
+      }) as unknown as string[],
+    metrics: () =>
+      t(`experience.jobs.${jobId}.metrics`, {
+        returnObjects: true,
+      }) as unknown as string[],
+  });
+
+  // Dynamic freelance translation getter - works for any project ID
+  const getFreelance = (projectId: string): FreelanceTranslations => ({
+    title: () => t(`experience.freelance.${projectId}.title`),
+    description: () => t(`experience.freelance.${projectId}.description`),
+  });
 
   return {
     // Navigation
@@ -46,99 +85,10 @@ export const useTranslations = () => {
       visitWebsite: () => t("experience.visitWebsite"),
       viewProject: () => t("experience.viewProject"),
       achievements: () => t("experience.achievements"),
-      metrics: () => t("experience.metrics"),
       technologies: () => t("experience.technologies"),
-      jobs: {
-        ellamau: {
-          title: () => t("experience.jobs.ellamau.title"),
-          company: () => t("experience.jobs.ellamau.company"),
-          location: () => t("experience.jobs.ellamau.location"),
-          period: () => t("experience.jobs.ellamau.period"),
-          description: () => t("experience.jobs.ellamau.description"),
-          achievements: () =>
-            t("experience.jobs.ellamau.achievements", {
-              returnObjects: true,
-            }) as unknown as string[],
-          metrics: {
-            salesIncrease: () =>
-              t("experience.jobs.ellamau.metrics.salesIncrease"),
-            timeline: () => t("experience.jobs.ellamau.metrics.timeline"),
-            teamSize: () => t("experience.jobs.ellamau.metrics.teamSize"),
-          },
-        },
-        rh: {
-          title: () => t("experience.jobs.rh.title"),
-          company: () => t("experience.jobs.rh.company"),
-          location: () => t("experience.jobs.rh.location"),
-          period: () => t("experience.jobs.rh.period"),
-          description: () => t("experience.jobs.rh.description"),
-          achievements: () =>
-            t("experience.jobs.rh.achievements", {
-              returnObjects: true,
-            }) as unknown as string[],
-          metrics: {
-            costReduction: () => t("experience.jobs.rh.metrics.costReduction"),
-            componentsBuilt: () =>
-              t("experience.jobs.rh.metrics.componentsBuilt"),
-            teamMembers: () => t("experience.jobs.rh.metrics.teamMembers"),
-          },
-        },
-        orthofix: {
-          title: () => t("experience.jobs.orthofix.title"),
-          company: () => t("experience.jobs.orthofix.company"),
-          location: () => t("experience.jobs.orthofix.location"),
-          period: () => t("experience.jobs.orthofix.period"),
-          description: () => t("experience.jobs.orthofix.description"),
-          achievements: () =>
-            t("experience.jobs.orthofix.achievements", {
-              returnObjects: true,
-            }) as unknown as string[],
-          metrics: {
-            patientsProcessed: () =>
-              t("experience.jobs.orthofix.metrics.patientsProcessed"),
-            systemUptime: () =>
-              t("experience.jobs.orthofix.metrics.systemUptime"),
-            processingTime: () =>
-              t("experience.jobs.orthofix.metrics.processingTime"),
-          },
-        },
-        ibox: {
-          title: () => t("experience.jobs.ibox.title"),
-          company: () => t("experience.jobs.ibox.company"),
-          location: () => t("experience.jobs.ibox.location"),
-          period: () => t("experience.jobs.ibox.period"),
-          description: () => t("experience.jobs.ibox.description"),
-          achievements: () =>
-            t("experience.jobs.ibox.achievements", {
-              returnObjects: true,
-            }) as unknown as string[],
-          metrics: {
-            websiteTraffic: () =>
-              t("experience.jobs.ibox.metrics.websiteTraffic"),
-            leadGeneration: () =>
-              t("experience.jobs.ibox.metrics.leadGeneration"),
-            pageLoadTime: () => t("experience.jobs.ibox.metrics.pageLoadTime"),
-          },
-        },
-      },
-      freelance: {
-        drHugo: {
-          title: () => t("experience.freelance.drHugo.title"),
-          description: () => t("experience.freelance.drHugo.description"),
-        },
-        sebastian: {
-          title: () => t("experience.freelance.sebastian.title"),
-          description: () => t("experience.freelance.sebastian.description"),
-        },
-        pagui: {
-          title: () => t("experience.freelance.pagui.title"),
-          description: () => t("experience.freelance.pagui.description"),
-        },
-        wordle: {
-          title: () => t("experience.freelance.wordle.title"),
-          description: () => t("experience.freelance.wordle.description"),
-        },
-      },
+      // Dynamic getters for any job/freelance project
+      getJob,
+      getFreelance,
     },
 
     // Skills section
