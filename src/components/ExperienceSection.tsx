@@ -13,6 +13,28 @@ import {
   ChevronUpIcon,
 } from "@heroicons/react/24/outline";
 
+// Logo component with error handling and fallback
+const CompanyLogo = ({ src, alt }: { src: string; alt: string }) => {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <BuildingOffice2Icon className="w-10 h-10 text-gray-400" />
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="w-full h-full object-contain"
+      onError={() => setHasError(true)}
+    />
+  );
+};
+
 // =============================================================================
 // JOB CONFIGURATION
 // To add a new job:
@@ -23,7 +45,8 @@ import {
 interface JobConfig {
   id: string;
   type: "full-time" | "freelance" | "current";
-  startYear: number; // Used for sorting: current jobs first, then by start year descending
+  startYear: number;
+  endYear: number | null; // null for current jobs, used for sorting by end date descending
   metricValues: string[];
   metricIcons: React.ComponentType<{ className?: string }>[];
   technologies: string[];
@@ -31,13 +54,14 @@ interface JobConfig {
   logo?: string;
 }
 
-// Jobs are sorted: current jobs first, then by startYear descending
+// Jobs are sorted: current jobs first, then by endYear descending
 const JOB_CONFIGS: JobConfig[] = [
   // === CURRENT JOBS (appear first) ===
   {
     id: "ellamau",
     type: "current",
     startYear: 2024,
+    endYear: null,
     metricValues: ["60%", "30 Days", "3"],
     metricIcons: [ChartBarIcon, CalendarIcon, UsersIcon],
     technologies: [
@@ -51,11 +75,41 @@ const JOB_CONFIGS: JobConfig[] = [
     website: "https://ellamau.vercel.app/",
     logo: "https://www.ellamauusa.com/cdn/shop/files/logo_ellamau.png?height=628&pad_color=ffffff&v=1743481196&width=1200",
   },
-  // === PAST JOBS (sorted by startYear descending) ===
+  // === PAST JOBS (sorted by endYear descending) ===
+  {
+    id: "digitdeck",
+    type: "full-time",
+    startYear: 2024,
+    endYear: 2026,
+    metricValues: ["5+", "+45%", "+60%"],
+    metricIcons: [BuildingOffice2Icon, ChartBarIcon, ChartBarIcon],
+    technologies: ["Shopify", "Liquid", "JavaScript", "CSS3", "HTML5", "SEO"],
+    website: "https://digitdeck.co/",
+    logo: "https://framerusercontent.com/images/UJJ3kd6f5grrgPCmw1YV1u0Np80.png",
+  },
+  {
+    id: "rh",
+    type: "full-time",
+    startYear: 2024,
+    endYear: 2026,
+    metricValues: ["60%", "50+", "12"],
+    metricIcons: [ChartBarIcon, BuildingOffice2Icon, UsersIcon],
+    technologies: [
+      "React",
+      "Material UI",
+      "Radix UI",
+      "Tailwind CSS",
+      "Contentful",
+      "AEM",
+    ],
+    website: "https://rh.com/us/en/sale",
+    logo: "https://companieslogo.com/img/orig/RH-b5862da2.png?t=1720244493",
+  },
   {
     id: "abidata",
     type: "full-time",
     startYear: 2025,
+    endYear: 2025,
     metricValues: ["15+", "+40%", "20+"],
     metricIcons: [BuildingOffice2Icon, UsersIcon, ChartBarIcon],
     technologies: [
@@ -70,26 +124,10 @@ const JOB_CONFIGS: JobConfig[] = [
     logo: "https://abidata.co/en/wp-content/uploads/2025/05/logo-abi.webp",
   },
   {
-    id: "rh",
-    type: "full-time",
-    startYear: 2024,
-    metricValues: ["60%", "50+", "12"],
-    metricIcons: [ChartBarIcon, BuildingOffice2Icon, UsersIcon],
-    technologies: [
-      "React",
-      "Material UI",
-      "Radix UI",
-      "Tailwind CSS",
-      "Contentful",
-      "AEM",
-    ],
-    website: "https://rh.com/us/en/sale",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2b/RH_logo.svg",
-  },
-  {
     id: "orthofix",
     type: "full-time",
     startYear: 2023,
+    endYear: 2024,
     metricValues: ["1000+", "99.9%", "-75%"],
     metricIcons: [UsersIcon, ChartBarIcon, CalendarIcon],
     technologies: [
@@ -106,11 +144,12 @@ const JOB_CONFIGS: JobConfig[] = [
     id: "ibox",
     type: "full-time",
     startYear: 2021,
+    endYear: 2022,
     metricValues: ["+200%", "+150%", "1.2s"],
     metricIcons: [ChartBarIcon, UsersIcon, CalendarIcon],
     technologies: ["React", "JavaScript", "CSS3", "HTML5", "Responsive Design"],
     website: "https://www.iboxsm.com/",
-    logo: "https://www.appiboxsm.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo_ibox.01cac8c8.png&w=1200&q=75",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvgxPRL6F4tC3jQeI5Zw_PbfgZLnl6jjvQ4w&s",
   },
 ];
 
@@ -296,14 +335,9 @@ const ExperienceSection = () => {
                           {selectedConfig.logo && (
                             <div className="flex-shrink-0">
                               <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl border-2 border-gray-200 p-2 flex items-center justify-center shadow-sm">
-                                <img
+                                <CompanyLogo
                                   src={selectedConfig.logo}
                                   alt={`${selectedJob.company()} logo`}
-                                  className="w-full h-full object-contain"
-                                  onError={(e) => {
-                                    const target = e.target as HTMLImageElement;
-                                    target.style.display = "none";
-                                  }}
                                 />
                               </div>
                             </div>
