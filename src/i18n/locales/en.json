@@ -37,6 +37,20 @@
     "achievements": "Key Achievements",
     "technologies": "Technologies Used",
     "jobs": {
+      "digitdeck": {
+        "title": "Frontend Developer",
+        "company": "Digitdeck",
+        "location": "Remote",
+        "period": "2024 - 2026",
+        "description": "Developed multiple e-commerce storefronts using Shopify and Liquid templating. Built custom plugins and add-ons for enhanced functionality including review systems, resulting in increased sales and improved SEO performance.",
+        "achievements": [
+          "Built multiple Shopify e-commerce storefronts with custom Liquid themes",
+          "Developed custom plugins and add-ons for product reviews and ratings",
+          "Optimized store performance and SEO for better search rankings",
+          "Implemented responsive designs ensuring seamless mobile shopping experience"
+        ],
+        "metrics": ["Stores Built", "Sales Increase", "SEO Improvement"]
+      },
       "abidata": {
         "title": "Full Stack Developer",
         "company": "ABI Data",
@@ -152,7 +166,9 @@
       "python": "Backend development, automation, and data processing",
       "mongodb": "NoSQL database design, aggregation pipelines, and performance optimization",
       "html": "Structuring web content with HTML5",
-      "css": "Styling web content with CSS3"
+      "css": "Styling web content with CSS3",
+      "liquid": "Shopify's templating language for dynamic e-commerce themes",
+      "shopify": "E-commerce platform development, themes, and custom app integrations"
     }
   },
   "contact": {
